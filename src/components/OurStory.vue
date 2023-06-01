@@ -34,7 +34,6 @@
 </template>
 
 <script setup>
-import MainTitle from './MainTitle'
 </script>
 
 <style scoped lang="scss">
