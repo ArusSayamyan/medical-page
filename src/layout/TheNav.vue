@@ -1,0 +1,84 @@
+<template>
+  <nav class="nav">
+    <div class="nav__logoBlock">
+      <img src="../assets/icons/pageLogo.svg" alt="pageLogo" class="nav__logo">
+      <span class="nav__pageTopic"><router-link class="nav__logoLink" to="/">Family Healthcare</router-link></span>
+    </div>
+    <ul class="nav__linksContent">
+      <li class="nav__item"><a href=""  class="nav__link">Home</a></li>
+      <li class="nav__item"><a href=""  class="nav__link">PRIMARY CARE</a></li>
+      <li class="nav__item"><a href=""  class="nav__link">DOT PHYSICALS</a></li>
+      <li class="nav__item"><a href=""  class="nav__link">WEIGHT LOSS</a></li>
+      <li class="nav__item"><a href=""  class="nav__link">ADDICTION MEDICINE</a></li>
+      <li class="nav__item"><a href=""  class="nav__link">CONTACT</a></li>
+      <li class="nav__item"><router-link to="/about" class="nav__link">About us</router-link></li>
+    </ul>
+  </nav>
+</template>
+
+<script>
+export default {
+  name: "TheNav"
+}
+</script>
+
+<style scoped lang="scss">
+.nav {
+  max-width: 1320px;
+  width: 100%;
+  background-color: #273053;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding: 0 20px;
+
+  &__logoBlock {
+    display: flex;
+    align-items: center;
+  }
+
+  &__pageTopic {
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-family: sans-serif;
+    margin-left: 5px;
+    color: #0dcaf0;
+    text-decoration: none;
+  }
+
+  &__linksContent {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__link {
+    font-size: 12px;
+    font-weight: 700;
+    font-family: sans-serif;
+    color: #fff;
+
+    &:hover {
+      color: #0dcaf0;
+    }
+  }
+
+  &__linksContent {
+    list-style: none;
+    padding: 0;
+  }
+
+  &__link {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 8px;
+  }
+
+  &__logoLink {
+    text-decoration: none;
+    color: #0dcaf0;
+  }
+}
+</style>
