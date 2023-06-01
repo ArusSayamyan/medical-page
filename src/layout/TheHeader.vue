@@ -24,7 +24,7 @@
   width: 100%;
   margin: 0 auto;
   position: absolute;
-  top: 20%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 

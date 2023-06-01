@@ -10,38 +10,93 @@
         </video>
       </div>
       <TheHeader/>
+    </div>
 
-      <!--      hightlught block-->
-      <div class="mainContainer__highlightsContent">
-        <div class="mainContainer__highlightsBlock">
-          <div class="mainContainer__highlight">
-            <img src="./assets/icons/hightlight1.jpg" alt="" class="mainContainer__highlightImg">
-            <div class="mainContainer__highlightContent">
-              <h3 class="mainContainer__highlightTitle">2019 Highlights</h3>
-            </div>
+    <!--      hightlught block-->
+    <div class="mainContainer__highlightsContent">
+      <div class="mainContainer__highlightsBlock">
+        <div class="mainContainer__highlight">
+          <img src="./assets/icons/hightlight1.jpg" alt="" class="mainContainer__highlightImg">
+          <div class="mainContainer__highlightContent">
+            <h3 class="mainContainer__highlightTitle">2019 Highlights</h3>
           </div>
-          <div class="mainContainer__highlight">
-            <img src="./assets/icons/hightlight1.jpg" alt="" class="mainContainer__highlightImg">
-            <div class="mainContainer__highlightContent">
-              <h3 class="mainContainer__highlightTitle">2019 Highlights</h3>
-            </div>
+        </div>
+        <div class="mainContainer__highlight">
+          <img src="./assets/icons/hightlight1.jpg" alt="" class="mainContainer__highlightImg">
+          <div class="mainContainer__highlightContent">
+            <h3 class="mainContainer__highlightTitle">2019 Highlights</h3>
           </div>
-          <div class="mainContainer__highlight">
-            <img src="./assets/icons/hightlight1.jpg" alt="" class="mainContainer__highlightImg">
-            <div class="mainContainer__highlightContent">
-              <h3 class="mainContainer__highlightTitle">2019 Highlights</h3>
-            </div>
+        </div>
+        <div class="mainContainer__highlight">
+          <img src="./assets/icons/hightlight1.jpg" alt="" class="mainContainer__highlightImg">
+          <div class="mainContainer__highlightContent">
+            <h3 class="mainContainer__highlightTitle">2019 Highlights</h3>
           </div>
         </div>
       </div>
+    </div>
 
-      <!--      our story-->
-      <div class="mainContainer__story">
-        <OurStory></OurStory>
+    <!--      our story-->
+    <div class="mainContainer__story">
+      <OurStory></OurStory>
+    </div>
+
+<!--    speakers-->
+    <div class="mainContainer__speakers speakers">
+      <div class="speakers__wrapper">
+        <div class="speakers__header">
+          <div class="speakers__descSection">
+            <main-title main="Our" important="speakers"></main-title>
+            <p class="speakers__desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+              incididunt ut dolore</p>
+          </div>
+          <div class="speakers__descSection">
+            <img src="./assets/imgs/user1.jpg" alt="" class="speakers__lead">
+            <span class="speakers__featured">Featured</span>
+          </div>
+        </div>
+        <div class="speakers__main">
+          <div class="speakers__members">
+            <img src="./assets/imgs/user2.jpg" alt="" class="speakers__member">
+            <img src="./assets/imgs/user3.jpg" alt="" class="speakers__member">
+            <img src="./assets/imgs/user4.jpg" alt="" class="speakers__member">
+            <img src="./assets/imgs/user5.jpg" alt="" class="speakers__member">
+          </div>
+        </div>
       </div>
     </div>
-    <router-view>
-    </router-view>
+
+<!--    order tables-->
+
+    <div class="mainContainer__orderTable orderTable">
+      <div class="orderTable__tableSection">
+        <main-title main="Table of" important="orders"></main-title>
+        <table class="orderTable__table">
+          <thead class="orderTable__thead">
+          <tr>
+            <th>Doctor</th>
+            <th>date</th>
+            <th>Service</th>
+            <th>price</th>
+          </tr>
+          </thead>
+          <tbody class="orderTable__tbody">
+          <tr>
+            <td>Alfreds Futterkiste</td>
+            <td>Maria Anders</td>
+            <td>Germany</td>
+            <td>Germany</td>
+          </tr>
+          <tr>
+            <td>Berglunds snabbköp</td>
+            <td>Christina Berglund</td>
+            <td>Sweden</td>
+            <td>Sweden</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -56,6 +111,7 @@ body {
   margin: 0;
   padding: 0;
   //background-color: #273053;
+  font-family: sans-serif;
 }
 
 .mainContainer {
@@ -130,7 +186,6 @@ body {
     color: #fff;
     text-align: center;
     font-weight: 700;
-    font-family: sans-serif;
     font-size: 36px;
   }
 
@@ -145,6 +200,108 @@ body {
       left: 0;
       margin-bottom: -5px;
       height: 600px;
+    }
+  }
+
+  &__speakers {
+    background-color: #f0f8ff;
+    padding: 120px 0;
+    box-sizing: border-box;
+  }
+}
+
+.speakers {
+  &__wrapper {
+    max-width: 1320px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+  }
+
+  &__descSection {
+    width: 50%;
+    position: relative;
+
+    &:first-child {
+      padding: 100px;
+      box-sizing: border-box;
+    }
+  }
+
+  &__lead {
+    width: 100%;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__main {
+    margin-top: 8px;
+  }
+
+  &__desc {
+    font-size: 18px;
+    color: #717275;
+  }
+
+  &__members {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  &__member {
+    width: 24.5%;
+    box-sizing: border-box;
+  }
+
+  &__featured {
+    background: #0d6efd;
+    border-radius: 4px;
+    color: #fff;
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 12px;
+    text-transform: uppercase;
+    margin: 10px;
+    padding: 4px 12px;
+
+  }
+}
+
+.orderTable {
+  padding: 100px 0;
+
+  &__tableSection {
+    max-width: 1320px;
+    padding: 0 20px;
+    box-sizing: border-box;
+    margin: 0 auto;
+  }
+
+  &__table {
+      border-collapse: collapse;
+      width: 100%;
+
+    & td, & th {
+      border: 1px solid #ddd;
+      padding: 8px;
+    }
+
+    & tr:nth-child(even){background-color: #f2f2f2;}
+
+    & tr:hover {background-color: #ddd;}
+
+    & th {
+      padding-top: 12px;
+      padding-bottom: 12px;
+      text-align: left;
+      background-color: #273053;
+      color: white;
     }
   }
 }
