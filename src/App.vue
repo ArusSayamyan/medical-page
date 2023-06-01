@@ -132,6 +132,7 @@ body {
 }
 
 .mainContainer {
+
   &__nav {
     background-color: #273053;
     position: fixed;
@@ -299,7 +300,6 @@ body {
     text-transform: uppercase;
     margin: 10px;
     padding: 4px 12px;
-
   }
 }
 
