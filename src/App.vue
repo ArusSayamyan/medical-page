@@ -4,10 +4,14 @@
       <TheNav/>
     </div>
     <div class="mainContainer__header">
-      <video class="mainContainer__headerVideo" autoplay loop muted>
-        <source src="./assets/medvideo.mp4" type="video/mp4">
-      </video>
-      <TheHeader />
+      <div class="mainContainer__videoWrapper">
+        <video class="mainContainer__headerVideo" autoplay loop muted>
+          <source src="./assets/medvideo.mp4" type="video/mp4">
+        </video>
+      </div>
+      <TheHeader/>
+
+      <!--      hightlught block-->
       <div class="mainContainer__highlightsContent">
         <div class="mainContainer__highlightsBlock">
           <div class="mainContainer__highlight">
@@ -31,6 +35,10 @@
         </div>
       </div>
 
+      <!--      our story-->
+      <div class="mainContainer__story">
+        <OurStory></OurStory>
+      </div>
     </div>
     <router-view>
     </router-view>
@@ -39,7 +47,8 @@
 
 <script setup>
 import TheNav from "@/layout/TheNav";
-import TheHeader  from "@/layout/TheHeader"
+import TheHeader from "@/layout/TheHeader";
+import OurStory from "@/components/OurStory"
 </script>
 
 <style lang="scss">
@@ -61,15 +70,8 @@ body {
 
   &__headerVideo {
     width: 100%;
-    height: 385px;
+    height: 600px;
     object-fit: cover;
-
-    &:after {
-      content: '';
-      background: rgba(0, 0, 0, 0) linear-gradient(rgba(39, 48, 83, 0.1) 0%, rgb(39, 48, 83) 100%) repeat scroll 0% 0%;
-      position: absolute;
-      top: 50%;
-    }
   }
 
   &__highlightsContent {
@@ -83,20 +85,35 @@ body {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    padding: 55px 0;
-  }
-
-  &__highlight {
-    max-width: 425px;
-    width: 100%;
+    padding: 55px 20px;
+    box-sizing: border-box;
   }
 
   &__highlightImg {
     width: 100%;
+
+    &:hover {
+      transform: scale(1.2);
+      transition: transform 2s;
+    }
   }
 
   &__highlight {
+    max-width: 400px;
+    width: 100%;
     position: relative;
+    overflow: hidden;
+
+    &:after {
+      content: "";
+      background: rgba(0, 0, 0, 0.45);
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
   }
 
   &__highlightContent {
@@ -105,6 +122,7 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     width: 100%;
+    z-index: 1;
 
   }
 
@@ -114,6 +132,20 @@ body {
     font-weight: 700;
     font-family: sans-serif;
     font-size: 36px;
+  }
+
+  &__videoWrapper {
+    &:after {
+      content: "";
+      background: rgba(0, 0, 0, 0) linear-gradient(rgba(39, 48, 83, 0.1) 0%, rgb(39, 48, 83) 100%) repeat scroll 0% 0%;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      margin-bottom: -5px;
+      height: 600px;
+    }
   }
 }
 </style>

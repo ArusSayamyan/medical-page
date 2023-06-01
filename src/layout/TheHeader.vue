@@ -24,7 +24,9 @@
   width: 100%;
   margin: 0 auto;
   position: absolute;
-  top: 0;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 
   &__medInfo {
     display: flex;
