@@ -1,5 +1,5 @@
 <template>
-  <h1 class="title">{{ props.main }} <span class="title__important">{{ props.important }}</span></h1>
+  <h1 class="title" :class="{'title__isWhite':props.isWhite}">{{ props.main }} <span class="title__important">{{ props.important }}</span></h1>
 </template>
 
 <script setup >
@@ -7,7 +7,8 @@ import defineProps from 'vue';
 
 const props = defineProps({
   main: String,
-  important: String
+  important: String,
+  isWhite: Boolean
 })
 </script>
 
@@ -22,6 +23,10 @@ const props = defineProps({
   &__important {
     text-decoration: underline;
     color: #0dcaf0;
+  }
+
+  &__isWhite {
+    color: #fff;
   }
 }
 </style>

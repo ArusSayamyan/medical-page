@@ -7,7 +7,7 @@
       <span class="header__date">July 12 to 18, 2022</span>
     </div>
     <div class="header__scrollDown">
-      <a href="" class="header__scrollLink">
+      <a href="#ourStory" class="header__scrollLink">
         <img src="../assets/icons/arrowDown.svg" alt="arrow" class="header__arrowDown">
       </a>
     </div>

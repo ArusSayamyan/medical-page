@@ -37,7 +37,7 @@
     </div>
 
     <!--      our story-->
-    <div class="mainContainer__story">
+    <div class="mainContainer__story" id="ourStory">
       <OurStory></OurStory>
     </div>
 
@@ -97,6 +97,20 @@
         </table>
       </div>
     </div>
+
+<!--    become a speaker-->
+
+    <div class="mainContainer__becomeSpeaker">
+      <div class="becomeSpeaker">
+        <div class="becomeSpeaker__info">
+          <main-title main="Become an" important="event speaker?" :isWhite="true"></main-title>
+          <p class="becomeSpeaker__desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut dolore</p>
+        </div>
+        <div class="becomeSpeaker__btnBlock">
+          <a href="#" class="becomeSpeaker__link">Register today</a>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -107,6 +121,9 @@ import OurStory from "@/components/OurStory"
 </script>
 
 <style lang="scss">
+* {
+  scroll-behavior: smooth;
+}
 body {
   margin: 0;
   padding: 0;
@@ -117,6 +134,9 @@ body {
 .mainContainer {
   &__nav {
     background-color: #273053;
+    position: fixed;
+    width: 100%;
+    z-index: 2;
   }
 
   &__header {
@@ -128,6 +148,16 @@ body {
     width: 100%;
     height: 600px;
     object-fit: cover;
+  }
+
+  &__becomeSpeaker {
+    background-image: url(./assets/imgs/speakersBg.jpg);
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+    padding: 100px 0;
   }
 
   &__highlightsContent {
@@ -273,6 +303,7 @@ body {
   }
 }
 
+//style of table
 .orderTable {
   padding: 100px 0;
 
@@ -303,6 +334,38 @@ body {
       background-color: #273053;
       color: white;
     }
+  }
+}
+
+//fixed background section
+
+.becomeSpeaker {
+max-width: 1320px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__desc {
+    font-size: 18px;
+    color: #fff;
+  }
+
+  &__link {
+    border: none;
+    color: #000;
+    padding: 15px 25px;
+    font-size: 16px;
+    margin-right: 20px;
+    cursor: pointer;
+    text-align: center;
+    background: #fff;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 700;
   }
 }
 </style>
