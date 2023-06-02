@@ -5,7 +5,7 @@
       <span class="nav__pageTopic"><router-link class="nav__logoLink" to="/">Family Healthcare</router-link></span>
     </div>
     <ul class="nav__linksContent">
-      <li class="nav__item"><a href=""  class="nav__link">Home</a></li>
+      <li class="nav__item"><router-link to="/" class="nav__link">Home</router-link></li>
       <li class="nav__item"><a href=""  class="nav__link">PRIMARY CARE</a></li>
       <li class="nav__item"><a href=""  class="nav__link">DOT PHYSICALS</a></li>
       <li class="nav__item"><a href=""  class="nav__link">WEIGHT LOSS</a></li>
@@ -52,6 +52,11 @@ export default {
   &__linksContent {
     display: flex;
     justify-content: space-between;
+
+    @media(max-width: 890px) {
+      flex-wrap: wrap;
+      justify-content: start;
+    }
   }
 
   &__link {

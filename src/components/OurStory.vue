@@ -48,10 +48,19 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
+
+    @media(max-width: 765px) {
+      flex-direction: column;
+    }
   }
 
   &__block {
     width: 49%;
+
+    @media(max-width: 765px) {
+      width: 100%;
+      margin-bottom: 20px;
+    }
   }
 
   &__subTitle {
@@ -60,6 +69,10 @@
     color: #000;
     font-family: sans-serif;
     margin-top: 0;
+
+    @media(max-width: 1024px) {
+      font-size: 28px;
+    }
   }
 
   &__desc {
