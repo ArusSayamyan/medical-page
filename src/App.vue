@@ -4,11 +4,13 @@
       <TheNav/>
     </div>
     <router-view></router-view>
+    <TheFooter/>
   </div>
 </template>
 
 <script setup>
 import TheNav from "@/layout/TheNav";
+import TheFooter from "@/layout/TheFooter";
 
 </script>
 

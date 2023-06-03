@@ -117,7 +117,10 @@
         </div>
       </div>
     </div>
-    <div class="mainContainer__tickets">
+
+    <!--    tickets block-->
+
+    <div class="mainContainer__tickets" id="tickets">
       <main-title main="Get Your" important=" Tickets" centered></main-title>
       <div class="mainContainer__ticketsWrapper">
         <MainTicket/>
@@ -126,7 +129,7 @@
       </div>
     </div>
 
-<!--    contact us-->
+    <!--    contact us-->
     <div class="mainContainer__contactUs" id="contactUs">
       <div class="mainContainer__contactUsWrapper">
         <main-title main="Contact" important="Us"></main-title>
@@ -139,6 +142,31 @@
           <MainTicket/>
         </div>
 
+      </div>
+    </div>
+
+    <!--    users messages-->
+
+    <div class="mainContainer__usersMessages">
+      <div class="mainContainer__usersMessagesContent usersMessages">
+        <div class="usersMessages__block">
+          <div class="usersMessages__header">
+            <h4 class="usersMessages__name">Please Say Hi</h4>
+          </div>
+          <div class="usersMessages__main">
+            <form class="usersMessages__form">
+              <div class="usersMessages__inputs">
+                <input type="text" class="usersMessages__input" placeholder="Name">
+                <input type="email" class="usersMessages__input" placeholder="Email">
+                <input type="text" class="usersMessages__input" placeholder="Subjecty">
+              </div>
+              <div class="usersMessages__opinion">
+                <textarea name="" placeholder="Message" id="" cols="30" rows="10" class="usersMessages__message"></textarea>
+              </div>
+              <button type="submit" class="usersMessages__sendBtn">Submit</button>
+            </form>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -206,10 +234,24 @@ body {
     width: 100%;
   }
 
-  &__map  {
+  &__map {
     border: none;
     border-radius: 20px;
   }
+
+  //users messages
+
+  &__usersMessages {
+    background-image: url(../assets/imgs/usersMessages.jpg);
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+    padding: 100px 0;
+  }
+
+  //header
 
   &__header {
     width: 100%;
@@ -469,6 +511,111 @@ body {
   &__btnBlock {
     @media(max-width: 960px) {
       margin-top: 25px;
+    }
+  }
+
+}
+
+.usersMessages {
+  max-width: 1320px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+
+  &__block {
+    max-width: 750px;
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
+    background-color: #fff;
+    margin: 0 auto;
+  }
+
+
+  &__name {
+    margin: 0;
+    font-size: 32px;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    padding: 30px;
+    align-items: center;
+    background: #273053;
+    border-radius: 20px 20px 0 0;
+    color: #fff;
+    box-sizing: border-box;
+  }
+
+  &__main {
+    padding: 30px;
+    box-sizing: border-box;
+  }
+
+  &__input {
+    border: none;
+    padding: 13px;
+    box-sizing: border-box;
+    background-color: #f0f8ff;
+    color: #212529;
+    max-width: 220px;
+    width: 100%;
+    border-radius: 5px;
+    outline: none;
+
+    &::placeholder {
+      font-size: 16px;
+      font-family: sans-serif;
+      color: #717275;
+    }
+
+    &:nth-child(2) {
+      margin: 0 20px;
+    }
+  }
+
+  &__inputs {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+
+  &__message {
+    border: none;
+    padding: 13px;
+    box-sizing: border-box;
+    background-color: #f0f8ff;
+    color: #212529;
+    border-radius: 5px;
+    width: 100%;
+    resize: none;
+    outline: none;
+
+    &::placeholder {
+      font-size: 16px;
+      font-family: sans-serif;
+      color: #717275;
+    }
+  }
+
+  &__sendBtn {
+    border: none;
+    margin-top: 20px;
+    width: 100%;
+    background: #0dcaf0;
+    border-radius: 100px;
+    color: #fff;
+    font-weight: 700;
+    transition: all 0.3s;
+    margin-bottom: 0;
+    padding: 13px 0;
+    cursor: pointer;
+    font-size: 18px;
+
+    &:hover {
+      background: #273053;
     }
   }
 
