@@ -6,7 +6,7 @@
     </div>
     <ul class="nav__linksContent">
       <li class="nav__item"><router-link to="/" class="nav__link">Home</router-link></li>
-      <li class="nav__item"><a href=""  class="nav__link">PRIMARY CARE</a></li>
+      <li class="nav__item"><a href="#tickets"  class="nav__link">PRIMARY CARE</a></li>
       <li class="nav__item"><a href=""  class="nav__link">DOT PHYSICALS</a></li>
       <li class="nav__item"><a href=""  class="nav__link">WEIGHT LOSS</a></li>
       <li class="nav__item"><a href=""  class="nav__link">ADDICTION MEDICINE</a></li>
