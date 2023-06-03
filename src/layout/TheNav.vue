@@ -10,7 +10,7 @@
       <li class="nav__item"><a href=""  class="nav__link">DOT PHYSICALS</a></li>
       <li class="nav__item"><a href=""  class="nav__link">WEIGHT LOSS</a></li>
       <li class="nav__item"><a href=""  class="nav__link">ADDICTION MEDICINE</a></li>
-      <li class="nav__item"><a href=""  class="nav__link">CONTACT</a></li>
+      <li class="nav__item"><a href="#contactUs"  class="nav__link">CONTACT</a></li>
       <li class="nav__item"><router-link to="/about" class="nav__link">About us</router-link></li>
     </ul>
   </nav>
