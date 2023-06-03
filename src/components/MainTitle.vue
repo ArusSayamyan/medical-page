@@ -1,5 +1,5 @@
 <template>
-  <h1 class="title" :class="{'title__isWhite':props.isWhite}">{{ props.main }} <span class="title__important">{{ props.important }}</span></h1>
+  <h1 class="title" :class="{'title__isWhite':props.isWhite , 'title__isCentered':props.centered}">{{ props.main }} <span class="title__important">{{ props.important }}</span></h1>
 </template>
 
 <script setup >
@@ -8,7 +8,8 @@ import defineProps from 'vue';
 const props = defineProps({
   main: String,
   important: String,
-  isWhite: Boolean
+  isWhite: Boolean,
+  centered: Boolean
 })
 </script>
 
@@ -27,6 +28,10 @@ const props = defineProps({
 
   &__isWhite {
     color: #fff;
+  }
+
+  &__isCentered {
+    text-align: center;
   }
 }
 </style>

@@ -80,19 +80,21 @@
           <tbody class="orderTable__tbody">
           <tr>
             <td>Alfreds Futterkiste</td>
-            <td>02/06/23,  18:50</td>
+            <td>02/06/23, 18:50</td>
             <td>service 1</td>
             <td>50$</td>
           </tr>
           <tr>
             <td>Berglunds snabbköp</td>
-            <td>02/06/23,  18:50</td>
+            <td>02/06/23, 18:50</td>
             <td>service 2</td>
             <td>50$</td>
           </tr>
           <tr v-for="obj in user" :key="obj.dateTime">
             <td>{{ obj.selectedDoctor.name }}</td>
-            <td>{{ new Date(obj.dateTime).toLocaleDateString() + ' / ' + new Date(obj.dateTime).toLocaleTimeString()}}</td>
+            <td>
+              {{ new Date(obj.dateTime).toLocaleDateString() + ' / ' + new Date(obj.dateTime).toLocaleTimeString() }}
+            </td>
             <td><span v-for="service in obj.selectedServices" :key="service.id">{{ service.name }}<br></span></td>
             <td>50$</td>
           </tr>
@@ -115,12 +117,37 @@
         </div>
       </div>
     </div>
+    <div class="mainContainer__tickets">
+      <main-title main="Get Your" important=" Tickets" centered></main-title>
+      <div class="mainContainer__ticketsWrapper">
+        <MainTicket/>
+        <MainTicket/>
+        <MainTicket/>
+      </div>
+    </div>
+
+<!--    contact us-->
+    <div class="mainContainer__contactUs" id="contactUs">
+      <div class="mainContainer__contactUsWrapper">
+        <main-title main="Contact" important="Us"></main-title>
+        <div class="mainContainer__contactContent">
+          <div class="mainContainer__mapBlock">
+            <iframe class="mainContainer__map"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1511.091461689997!2d-73.9866630916883!3d40.758001294831736!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25855a96da09d%3A0x860bf5a5e1a00a68!2sTimes%20Square%2C%20New%20York%2C%20NY%2010036%2C%20USA!5e0!3m2!1sen!2ssg!4v1643035529098!5m2!1sen!2ssg"
+                    width="100%" height="371.59" allowfullscreen="" loading="lazy"></iframe>
+          </div>
+          <MainTicket/>
+        </div>
+
+      </div>
+    </div>
   </div>
 </template>
 
 <script setup>
 import TheHeader from "@/layout/TheHeader";
-import OurStory from "@/components/OurStory"
+import OurStory from "@/components/OurStory";
+import MainTicket from "@/components/MainTicket"
 
 let user = JSON.parse(localStorage.getItem('data'));
 console.log(new Date('2023-06-28T14:58:23.000Z'))
@@ -145,6 +172,43 @@ body {
     position: fixed;
     width: 100%;
     z-index: 2;
+  }
+
+  &__ticketsWrapper {
+    max-width: 1320px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 55px 20px;
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+  }
+
+  &__contactUs {
+    padding: 55px 0;
+    background-color: #f0f8ff;
+  }
+
+  &__contactUsWrapper {
+    max-width: 1320px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+  }
+
+  &__contactContent {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__mapBlock {
+    width: 100%;
+  }
+
+  &__map  {
+    border: none;
+    border-radius: 20px;
   }
 
   &__header {
@@ -407,5 +471,6 @@ body {
       margin-top: 25px;
     }
   }
+
 }
 </style>
