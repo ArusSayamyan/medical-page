@@ -283,7 +283,6 @@ import TheHeader from "@/layout/TheHeader";
 import OurStory from "@/components/OurStory";
 import MainTicket from "@/components/MainTicket";
 import DoctorInfo from "@/components/DoctorInfo";
-import ImageCarousel from "@/components/ImageCarousel.vue";
 
 import {ref} from 'vue';
 import { defineComponent } from 'vue'
