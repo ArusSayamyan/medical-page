@@ -275,7 +275,6 @@
         </div>
       </div>
     </div>
-    <ImageCarousel />
   </div>
 </template>
 
