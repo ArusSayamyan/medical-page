@@ -1,11 +1,12 @@
 <template>
   <div class="registerPage">
     <h1 class="registerPage__title">Registration</h1>
+    <p class="registerPage__price" v-if="price > 0">The total cosi is {{price}}$</p>
     <div class="registerPage__formContainer">
       <form class="registerPage__form" @submit.prevent="setData">
         <div class="card flex justify-content-center">
-          <MultiSelect v-model="selectedServices" :options="services" optionLabel="name" placeholder="Select Services"
-                       :maxSelectedLabels="3" class="w-full md:w-20rem"/>
+          <MultiSelect v-model="selectedServices" :options="services"  :optionLabel="optionGroupLabel" multiple  placeholder="Select Services"
+                       :maxSelectedLabels="3" class="w-full md:w-20rem" @change="handle"/>
         </div>
         <div class="card flex justify-content-center">
           <Dropdown v-model="selectedDoctor" :options="doctors" optionLabel="name" placeholder="Select a doctor"
@@ -33,6 +34,8 @@ import MultiSelect from 'primevue/multiselect';
 import Dropdown from 'primevue/dropdown';
 import Calendar from 'primevue/calendar';
 import {ref} from "vue";
+const price = ref(0)
+// const arr = ref([])
 
 const selectedServices = ref();
 const services = ref([
@@ -43,6 +46,19 @@ const services = ref([
   {name: 'Nutritional support', id: 'Ns',  price: 220},
   {name: 'Pharmaceutical care', id: 'Phc',  price: 110}
 ]);
+
+const optionGroupLabel = (group) => {
+
+    return group.name + ' - ' +  group.price + '$';
+
+};
+
+function handle() {
+    price.value = selectedServices.value.reduce((acc, option) => acc + option.price, 0);
+    return price.value
+}
+
+
 
 //dropdown
 const selectedDoctor = ref();
@@ -64,13 +80,15 @@ function setData() {
     let info = {
       selectedServices: selectedServices.value,
       selectedDoctor: selectedDoctor.value,
-      dateTime: datetime24h.value
+      dateTime: datetime24h.value,
+      totalCost: price.value
     }
 
     let dataArr = JSON.parse(localStorage.getItem("data")) || [];
     dataArr.push(info);
     localStorage.setItem('data', JSON.stringify(dataArr));
   }
+  window.location.replace('/')
 }
 
 
@@ -78,10 +96,11 @@ function setData() {
 
 <style scoped lang="scss">
 .registerPage {
-  padding-top: 100px;
+  padding: 100px 20px 0;
   max-width: 1320px;
   width: 100%;
   margin: 0 auto;
+  box-sizing: border-box;
 
   &__title {
     text-align: center;
@@ -106,6 +125,10 @@ function setData() {
     padding: 15px 12px;
     border-radius: 6px;
     font-size: 16px;
+  }
+
+  &__price {
+    text-align: center;
   }
 
   &__formBtn {

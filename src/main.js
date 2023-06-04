@@ -1,4 +1,5 @@
 import { createApp } from 'vue'
+import { createStore } from 'vuex'
 import router from './router'
 import App from './App.vue'
 import PrimeVue from 'primevue/config';
@@ -7,6 +8,23 @@ import MainTitle from '@/components/MainTitle'
 import "primevue/resources/themes/lara-light-indigo/theme.css";
 import "primevue/resources/primevue.min.css";
 
+const store = createStore({
+    state() {
+        return {
+            doctorKey: '',
+        }
+    },
+    mutations: {
+        changeDoctorKey(state, payload) {
+            state.doctorKey = payload
+        },
+    },
+    getters: {
+        getKey(state) {
+            return state.doctorKey
+        },
+    },
+})
 
 
 
@@ -16,4 +34,5 @@ app.component('main-title', MainTitle)
 //routing
 app.use(router)
 app.use(PrimeVue)
+app.use(store)
 app.mount('#app')

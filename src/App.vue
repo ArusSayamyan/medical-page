@@ -17,6 +17,7 @@ import TheFooter from "@/layout/TheFooter";
 <style lang="scss">
 * {
   scroll-behavior: smooth;
+  touch-action: pan-y;
 }
 
 body {

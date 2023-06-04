@@ -61,7 +61,7 @@
 
 <style scoped lang="scss">
 .footer {
-  padding: 80px 0;
+  padding: 50px 0;
 
   &__wrapper {
     max-width: 1320px;

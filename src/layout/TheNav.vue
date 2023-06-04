@@ -7,11 +7,11 @@
     <ul class="nav__linksContent">
       <li class="nav__item"><router-link to="/" class="nav__link">Home</router-link></li>
       <li class="nav__item"><a href="#tickets"  class="nav__link">PRIMARY CARE</a></li>
-      <li class="nav__item"><a href=""  class="nav__link">DOT PHYSICALS</a></li>
-      <li class="nav__item"><a href=""  class="nav__link">WEIGHT LOSS</a></li>
-      <li class="nav__item"><a href=""  class="nav__link">ADDICTION MEDICINE</a></li>
+      <li class="nav__item"><a href="#ourDoctors"  class="nav__link">Our Doctors</a></li>
+      <li class="nav__item"><a href="#register"  class="nav__link">Register now</a></li>
+      <li class="nav__item"><a href="#opinion"  class="nav__link">your opinion</a></li>
       <li class="nav__item"><a href="#contactUs"  class="nav__link">CONTACT</a></li>
-      <li class="nav__item"><router-link to="/about" class="nav__link">About us</router-link></li>
+      <li class="nav__item"><a href="#aboutUs" class="nav__link">About us</a></li>
     </ul>
   </nav>
 </template>

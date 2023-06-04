@@ -1,8 +1,8 @@
 <template>
-  <div class="story">
+  <div class="story" id="aboutUs">
     <main-title
-        main="Our"
-        important="Story"
+        main="About"
+        important="Us"
     ></main-title>
     <div class="story__wrapper">
       <div class="story__block">

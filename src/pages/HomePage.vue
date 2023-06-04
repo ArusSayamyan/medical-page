@@ -39,25 +39,38 @@
     </div>
 
     <!--    speakers-->
-    <div class="mainContainer__speakers speakers">
+    <div class="mainContainer__speakers speakers" id="ourDoctors">
       <div class="speakers__wrapper">
         <div class="speakers__header">
           <div class="speakers__descSection">
-            <main-title main="Our" important="speakers"></main-title>
+            <main-title main="Our" important="Doctors"></main-title>
             <p class="speakers__desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
               incididunt ut dolore</p>
           </div>
           <div class="speakers__descSection">
             <img src="../assets/imgs/user1.jpg" alt="" class="speakers__lead">
             <span class="speakers__featured">Featured</span>
+            <doctor-info doctorName="Franklin Alier" doctorSpec="Neurologist"></doctor-info>
           </div>
         </div>
         <div class="speakers__main">
           <div class="speakers__members">
-            <img src="../assets/imgs/user2.jpg" alt="" class="speakers__member">
-            <img src="../assets/imgs/user3.jpg" alt="" class="speakers__member">
-            <img src="../assets/imgs/user4.jpg" alt="" class="speakers__member">
-            <img src="../assets/imgs/user5.jpg" alt="" class="speakers__member">
+            <div class="speakers__doctor">
+              <img src="../assets/imgs/user2.jpg" alt="" class="speakers__member">
+              <doctor-info doctorName="Emily Ackerman" doctorSpec="Neurologist"></doctor-info>
+            </div>
+            <div class="speakers__doctor">
+              <img src="../assets/imgs/user3.jpg" alt="" class="speakers__member">
+              <doctor-info doctorName="Dorcas Adaramola" doctorSpec="Clinical Psychiatrist"></doctor-info>
+            </div>
+            <div class="speakers__doctor">
+              <img src="../assets/imgs/user4.jpg" alt="" class="speakers__member">
+              <doctor-info doctorName="Samantha Agar" doctorSpec="Oncologist"></doctor-info>
+            </div>
+            <div class="speakers__doctor">
+              <img src="../assets/imgs/user5.jpg" alt="" class="speakers__member">
+              <doctor-info doctorName="Richard Austin" doctorSpec="Plastic Surgeon"></doctor-info>
+            </div>
           </div>
         </div>
       </div>
@@ -96,7 +109,7 @@
               {{ new Date(obj.dateTime).toLocaleDateString() + ' / ' + new Date(obj.dateTime).toLocaleTimeString() }}
             </td>
             <td><span v-for="service in obj.selectedServices" :key="service.id">{{ service.name }}<br></span></td>
-            <td>50$</td>
+            <td>{{ obj.totalCost }}$</td>
           </tr>
           </tbody>
         </table>
@@ -105,10 +118,10 @@
 
     <!--    become a speaker-->
 
-    <div class="mainContainer__becomeSpeaker">
+    <div class="mainContainer__becomeSpeaker" id="register">
       <div class="becomeSpeaker">
         <div class="becomeSpeaker__info">
-          <main-title main="Become an" important="event speaker?" :isWhite="true"></main-title>
+          <main-title main="Make your order" important="now" :isWhite="true"></main-title>
           <p class="becomeSpeaker__desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
             incididunt ut dolore</p>
         </div>
@@ -142,12 +155,13 @@
           <MainTicket/>
         </div>
 
+
       </div>
     </div>
 
     <!--    users messages-->
 
-    <div class="mainContainer__usersMessages">
+    <div class="mainContainer__usersMessages" id="opinion">
       <div class="mainContainer__usersMessagesContent usersMessages">
         <div class="usersMessages__block">
           <div class="usersMessages__header">
@@ -161,7 +175,8 @@
                 <input type="text" class="usersMessages__input" placeholder="Subjecty">
               </div>
               <div class="usersMessages__opinion">
-                <textarea name="" placeholder="Message" id="" cols="30" rows="10" class="usersMessages__message"></textarea>
+                <textarea name="" placeholder="Message" id="" cols="30" rows="10"
+                          class="usersMessages__message"></textarea>
               </div>
               <button type="submit" class="usersMessages__sendBtn">Submit</button>
             </form>
@@ -175,13 +190,16 @@
 <script setup>
 import TheHeader from "@/layout/TheHeader";
 import OurStory from "@/components/OurStory";
-import MainTicket from "@/components/MainTicket"
+import MainTicket from "@/components/MainTicket";
+import DoctorInfo from "@/components/DoctorInfo";
 
+
+// Add the event listener with passive: true
 let user = JSON.parse(localStorage.getItem('data'));
-console.log(new Date('2023-06-28T14:58:23.000Z'))
 </script>
 
 <style lang="scss">
+
 * {
   scroll-behavior: smooth;
 }
@@ -382,6 +400,7 @@ body {
 
   &__lead {
     width: 100%;
+    height: 100%;
   }
 
   &__header {
@@ -404,9 +423,16 @@ body {
     flex-wrap: wrap;
   }
 
-  &__member {
+  &__doctor {
     width: 24.5%;
     box-sizing: border-box;
+    position: relative;
+  }
+
+
+  &__member {
+    width: 100%;
+    height: 100%;
   }
 
   &__featured {
