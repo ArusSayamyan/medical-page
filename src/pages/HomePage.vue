@@ -12,24 +12,115 @@
     <!--      hightlught block-->
     <div class="mainContainer__highlightsContent">
       <div class="mainContainer__highlightsBlock">
+        <swiper-vue
+            class="swiper"
+            :slides-per-view="1"
+            :space-between="20"
+            :keyboard="{ enabled: true }"
+            swiper.animating=true
+        >
+          <swiper-slide class="slide">
         <div class="mainContainer__highlight">
           <img src="../assets/icons/hightlight1.jpg" alt="" class="mainContainer__highlightImg">
           <div class="mainContainer__highlightContent">
             <h3 class="mainContainer__highlightTitle">2019 Highlights</h3>
           </div>
         </div>
-        <div class="mainContainer__highlight">
-          <img src="../assets/icons/hightlight1.jpg" alt="" class="mainContainer__highlightImg">
-          <div class="mainContainer__highlightContent">
-            <h3 class="mainContainer__highlightTitle">2019 Highlights</h3>
+          </swiper-slide>
+          <swiper-slide class="slide">
+          <div class="mainContainer__highlight">
+            <img src="../assets/imgs/medConf2.jpg" alt="" class="mainContainer__highlightImg">
           </div>
-        </div>
-        <div class="mainContainer__highlight">
-          <img src="../assets/icons/hightlight1.jpg" alt="" class="mainContainer__highlightImg">
-          <div class="mainContainer__highlightContent">
-            <h3 class="mainContainer__highlightTitle">2019 Highlights</h3>
+          </swiper-slide>
+          <swiper-slide class="slide">
+          <div class="mainContainer__highlight">
+            <img src="../assets/imgs/medConf3.jpg" alt="" class="mainContainer__highlightImg">
           </div>
-        </div>
+          </swiper-slide>
+          <swiper-slide class="slide">
+          <div class="mainContainer__highlight">
+            <img src="../assets/imgs/medConf4.jpg" alt="" class="mainContainer__highlightImg">
+          </div>
+          </swiper-slide>
+          <swiper-slide class="slide">
+          <div class="mainContainer__highlight">
+            <img src="../assets/imgs/medConf6.jpg" alt="" class="mainContainer__highlightImg">
+          </div>
+          </swiper-slide>
+        </swiper-vue>
+        <swiper-vue
+            class="swiper"
+            :slides-per-view="1"
+            :space-between="20"
+            :keyboard="{ enabled: true }"
+            swiper.animating=true
+        >
+          <swiper-slide class="slide">
+            <div class="mainContainer__highlight">
+              <img src="../assets/imgs/medConf5.jpg" alt="" class="mainContainer__highlightImg">
+              <div class="mainContainer__highlightContent">
+                <h3 class="mainContainer__highlightTitle">2021 Highlights</h3>
+              </div>
+            </div>
+          </swiper-slide>
+          <swiper-slide class="slide">
+            <div class="mainContainer__highlight">
+              <img src="../assets/imgs/medConf7.jpg" alt="" class="mainContainer__highlightImg">
+            </div>
+          </swiper-slide>
+          <swiper-slide class="slide">
+            <div class="mainContainer__highlight">
+              <img src="../assets/imgs/medConf8.jpg" alt="" class="mainContainer__highlightImg">
+            </div>
+          </swiper-slide>
+          <swiper-slide class="slide">
+            <div class="mainContainer__highlight">
+              <img src="../assets/imgs/medConf9.jpg" alt="" class="mainContainer__highlightImg">
+            </div>
+          </swiper-slide>
+          <swiper-slide class="slide">
+            <div class="mainContainer__highlight">
+              <img src="../assets/imgs/medConf10.jpg" alt="" class="mainContainer__highlightImg">
+            </div>
+          </swiper-slide>
+        </swiper-vue>
+        <swiper-vue
+            class="swiper"
+            :slides-per-view="1"
+            :space-between="20"
+            :keyboard="{ enabled: true }"
+            swiper.animating=true
+        >
+          <swiper-slide class="slide">
+            <div class="mainContainer__highlight">
+              <img src="../assets/imgs/medConf15.jpg" alt="" class="mainContainer__highlightImg">
+              <div class="mainContainer__highlightContent">
+                <h3 class="mainContainer__highlightTitle">2022 Highlights</h3>
+              </div>
+            </div>
+          </swiper-slide>
+          <swiper-slide class="slide">
+            <div class="mainContainer__highlight">
+              <img src="../assets/imgs/medConf11.jpg" alt="" class="mainContainer__highlightImg">
+            </div>
+          </swiper-slide>
+          <swiper-slide class="slide">
+            <div class="mainContainer__highlight">
+              <img src="../assets/imgs/medConf12.jpg" alt="" class="mainContainer__highlightImg">
+            </div>
+          </swiper-slide>
+          <swiper-slide class="slide">
+            <div class="mainContainer__highlight">
+              <img src="../assets/imgs/medConf13.jpg" alt="" class="mainContainer__highlightImg">
+            </div>
+          </swiper-slide>
+          <swiper-slide class="slide">
+            <div class="mainContainer__highlight">
+              <img src="../assets/imgs/medConf14.jpg" alt="" class="mainContainer__highlightImg">
+            </div>
+          </swiper-slide>
+        </swiper-vue>
+
       </div>
     </div>
 
@@ -184,6 +275,7 @@
         </div>
       </div>
     </div>
+    <ImageCarousel />
   </div>
 </template>
 
@@ -192,8 +284,37 @@ import TheHeader from "@/layout/TheHeader";
 import OurStory from "@/components/OurStory";
 import MainTicket from "@/components/MainTicket";
 import DoctorInfo from "@/components/DoctorInfo";
+import ImageCarousel from "@/components/ImageCarousel.vue";
 
-
+import {ref} from 'vue';
+import { defineComponent } from 'vue'
+import { Pagination, Navigation, Keyboard } from 'swiper'
+// import { Swiper, SwiperSlide } from 'swiper/vue'
+import 'swiper/css'
+import 'swiper/css/pagination'
+import 'swiper/css/navigation'
+defineComponent({
+  name: 'swiper-example-keyboard-control',
+  title: 'Keyboard control',
+  url: import.meta.url,
+  setup() {
+    const pageNum = ref(1)
+    const onSlideChange = () => {
+      if(pageNum.value === 1) {
+        pageNum.value++
+      }
+      else if(pageNum.value === 2) {
+        pageNum.value--
+      }
+      console.dir(Pagination);
+    };
+    return {
+      modules: [Pagination, Navigation, Keyboard],
+      onSlideChange,
+      pageNum
+    }
+  }
+})
 // Add the event listener with passive: true
 let user = JSON.parse(localStorage.getItem('data'));
 </script>
@@ -308,11 +429,9 @@ body {
 
   &__highlightImg {
     width: 100%;
+    height: 100%;
+    object-fit: cover;
 
-    &:hover {
-      transform: scale(1.2);
-      transition: transform 2s;
-    }
   }
 
   &__highlight {
@@ -320,6 +439,7 @@ body {
     width: 100%;
     position: relative;
     overflow: hidden;
+    height: 100%;
 
     &:nth-child(2) {
       margin: 0 15px;
@@ -645,5 +765,42 @@ body {
     }
   }
 
+}
+
+.swiper-horizontal>.swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal {
+  bottom: 0 !important;
+}
+
+.swiper-pagination-bullet-active {
+  background: #000 !important;
+}
+
+.swiper-horizontal {
+  width: 400px
+}
+.swiper-button-next {
+  right: 14px;
+  left: auto;
+  position: absolute;
+  top: 40px;
+  width: 10px;
+  height: 10px;
+  color: #000;
+}
+.swiper-button-prev {
+  right: 64px;
+  left: auto;
+  position: absolute;
+  top: 40px;
+  width: 10px;
+  height: 10px;
+  color: #000;
+}
+
+.swiper-button-next::after {
+  font-size: 14px;
+}
+.swiper-button-prev::after {
+  font-size: 14px;
 }
 </style>
