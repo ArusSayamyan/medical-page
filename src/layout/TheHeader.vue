@@ -1,7 +1,7 @@
 <template>
 <header class="header">
   <div class="header__medInfo">
-    <h1 class="header__mainTitle"><span class="header__important"> Family</span> Medicine and Internal Medicine</h1>
+    <h1 class="header__mainTitle"><span class="header__important">{{ $t('title')['mainWorld'] }}</span> {{ $t('title')['mainTitle'] }}</h1>
     <div class="header__dateBlock">
       <span class="header__date">July 12 to 18, 2022</span>
       <span class="header__date">July 12 to 18, 2022</span>
@@ -16,7 +16,14 @@
 </template>
 
 <script setup>
+import {useStore} from "vuex";
+import {computed} from "vue";
 
+const store = useStore()
+
+const $t = computed(()=> {
+  return store.getters.getLanguage
+})
 </script>
 
 <style scoped lang="scss">
@@ -27,6 +34,11 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+
+  @media(max-width: 500px) {
+    padding: 0 20px;
+    box-sizing: border-box;
+  }
 
   &__medInfo {
     display: flex;
@@ -43,6 +55,10 @@
     text-transform: uppercase;
     font-weight: 700;
     text-align: center;
+
+    @media(max-width: 500px) {
+      font-size: 36px;
+    }
   }
 
   &__important {

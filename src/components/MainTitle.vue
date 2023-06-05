@@ -21,6 +21,10 @@ const props = defineProps({
     text-transform: capitalize;
     font-weight: 700;
 
+  @media(max-width: 500px) {
+    font-size: 30px;
+  }
+
   &__important {
     text-decoration: underline;
     color: #0dcaf0;

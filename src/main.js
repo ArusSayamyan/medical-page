@@ -8,23 +8,40 @@ import MainTitle from '@/components/MainTitle'
 import "primevue/resources/themes/lara-light-indigo/theme.css";
 import "primevue/resources/primevue.min.css";
 import { Swiper, SwiperSlide } from 'swiper/vue'
+import en from "@/translateJsons/en.json";
+import ru from "@/translateJsons/ru.json";
+import arm from "@/translateJsons/arm.json";
 
 
 const store = createStore({
     state() {
         return {
             doctorKey: '',
+            currentLanguage: 'en',
+            translations: {
+                en,
+                ru,
+                arm
+            }
         }
     },
     mutations: {
         changeDoctorKey(state, payload) {
             state.doctorKey = payload
         },
+
+        changeLanguage(state, payload) {
+            state.currentLanguage = payload
+        },
     },
     getters: {
         getKey(state) {
             return state.doctorKey
         },
+
+        getLanguage(state) {
+            return  key => state.translations[state.currentLanguage][key];
+        }
     },
 })
 

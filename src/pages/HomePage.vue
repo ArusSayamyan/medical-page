@@ -23,7 +23,7 @@
         <div class="mainContainer__highlight">
           <img src="../assets/icons/hightlight1.jpg" alt="" class="mainContainer__highlightImg">
           <div class="mainContainer__highlightContent">
-            <h3 class="mainContainer__highlightTitle">2019 Highlights</h3>
+            <h3 class="mainContainer__highlightTitle">2019 {{ $t('conferences')}}</h3>
           </div>
         </div>
           </swiper-slide>
@@ -59,7 +59,7 @@
             <div class="mainContainer__highlight">
               <img src="../assets/imgs/medConf5.jpg" alt="" class="mainContainer__highlightImg">
               <div class="mainContainer__highlightContent">
-                <h3 class="mainContainer__highlightTitle">2021 Highlights</h3>
+                <h3 class="mainContainer__highlightTitle">2021 {{ $t('conferences')}}</h3>
               </div>
             </div>
           </swiper-slide>
@@ -95,7 +95,7 @@
             <div class="mainContainer__highlight">
               <img src="../assets/imgs/medConf15.jpg" alt="" class="mainContainer__highlightImg">
               <div class="mainContainer__highlightContent">
-                <h3 class="mainContainer__highlightTitle">2022 Highlights</h3>
+                <h3 class="mainContainer__highlightTitle">2022 {{ $t('conferences')}}</h3>
               </div>
             </div>
           </swiper-slide>
@@ -134,33 +134,33 @@
       <div class="speakers__wrapper">
         <div class="speakers__header">
           <div class="speakers__descSection">
-            <main-title main="Our" important="Doctors"></main-title>
+            <main-title :main="$t('doctors')['title']['mainWorld']" :important="$t('doctors')['title']['mainTitle']"></main-title>
             <p class="speakers__desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
               incididunt ut dolore</p>
           </div>
           <div class="speakers__descSection">
             <img src="../assets/imgs/user1.jpg" alt="" class="speakers__lead">
             <span class="speakers__featured">Featured</span>
-            <doctor-info doctorName="Franklin Alier" doctorSpec="Neurologist"></doctor-info>
+            <doctor-info doctorName="Franklin Alier" :doctorSpec="$t('doctors')['specialist1']"></doctor-info>
           </div>
         </div>
         <div class="speakers__main">
           <div class="speakers__members">
             <div class="speakers__doctor">
               <img src="../assets/imgs/user2.jpg" alt="" class="speakers__member">
-              <doctor-info doctorName="Emily Ackerman" doctorSpec="Neurologist"></doctor-info>
+              <doctor-info doctorName="Emily Ackerman" :doctorSpec="$t('doctors')['specialist1']"></doctor-info>
             </div>
             <div class="speakers__doctor">
               <img src="../assets/imgs/user3.jpg" alt="" class="speakers__member">
-              <doctor-info doctorName="Dorcas Adaramola" doctorSpec="Clinical Psychiatrist"></doctor-info>
+              <doctor-info doctorName="Dorcas Adaramola" :doctorSpec="$t('doctors')['specialist2']"></doctor-info>
             </div>
             <div class="speakers__doctor">
               <img src="../assets/imgs/user4.jpg" alt="" class="speakers__member">
-              <doctor-info doctorName="Samantha Agar" doctorSpec="Oncologist"></doctor-info>
+              <doctor-info doctorName="Samantha Agar" :doctorSpec="$t('doctors')['specialist3']"></doctor-info>
             </div>
             <div class="speakers__doctor">
               <img src="../assets/imgs/user5.jpg" alt="" class="speakers__member">
-              <doctor-info doctorName="Richard Austin" doctorSpec="Plastic Surgeon"></doctor-info>
+              <doctor-info doctorName="Richard Austin" :doctorSpec="$t('doctors')['specialist4']"></doctor-info>
             </div>
           </div>
         </div>
@@ -171,39 +171,41 @@
 
     <div class="mainContainer__orderTable orderTable">
       <div class="orderTable__tableSection">
-        <main-title main="Table of" important="orders"></main-title>
-        <table class="orderTable__table">
-          <thead class="orderTable__thead">
-          <tr>
-            <th>Doctor</th>
-            <th>date</th>
-            <th>Service</th>
-            <th>price</th>
-          </tr>
-          </thead>
-          <tbody class="orderTable__tbody">
-          <tr>
-            <td>Alfreds Futterkiste</td>
-            <td>02/06/23, 18:50</td>
-            <td>service 1</td>
-            <td>50$</td>
-          </tr>
-          <tr>
-            <td>Berglunds snabbköp</td>
-            <td>02/06/23, 18:50</td>
-            <td>service 2</td>
-            <td>50$</td>
-          </tr>
-          <tr v-for="obj in user" :key="obj.dateTime">
-            <td>{{ obj.selectedDoctor.name }}</td>
-            <td>
-              {{ new Date(obj.dateTime).toLocaleDateString() + ' / ' + new Date(obj.dateTime).toLocaleTimeString() }}
-            </td>
-            <td><span v-for="service in obj.selectedServices" :key="service.id">{{ service.name }}<br></span></td>
-            <td>{{ obj.totalCost }}$</td>
-          </tr>
-          </tbody>
-        </table>
+        <main-title :main="$t('registration')['title']['mainWorld']" :important="$t('registration')['title']['mainTitle']"></main-title>
+        <div class="orderTable__tableWrapper">
+          <table class="orderTable__table">
+            <thead class="orderTable__thead">
+            <tr>
+              <th>{{ $t('registration')['docName'] }}</th>
+              <th>{{ $t('registration')['date'] }}</th>
+              <th>{{  $t('registration')['service'] }}</th>
+              <th>{{  $t('registration')['price'] }}</th>
+            </tr>
+            </thead>
+            <tbody class="orderTable__tbody">
+            <tr>
+              <td>Alfreds Futterkiste</td>
+              <td>02/06/23, 18:50</td>
+              <td>service 1</td>
+              <td>50$</td>
+            </tr>
+            <tr>
+              <td>Berglunds snabbköp</td>
+              <td>02/06/23, 18:50</td>
+              <td>service 2</td>
+              <td>50$</td>
+            </tr>
+            <tr v-for="obj in user" :key="obj.dateTime">
+              <td>{{ obj.selectedDoctor.name }}</td>
+              <td>
+                {{ new Date(obj.dateTime).toLocaleDateString() + ' / ' + new Date(obj.dateTime).toLocaleTimeString() }}
+              </td>
+              <td><span v-for="service in obj.selectedServices" :key="service.id">{{ service.name }}<br></span></td>
+              <td>{{ obj.totalCost }}$</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
 
@@ -212,12 +214,12 @@
     <div class="mainContainer__becomeSpeaker" id="register">
       <div class="becomeSpeaker">
         <div class="becomeSpeaker__info">
-          <main-title main="Make your order" important="now" :isWhite="true"></main-title>
+          <main-title :main="$t('register')['title']['mainWorld']" :important="$t('register')['title']['mainTitle']" :isWhite="true"></main-title>
           <p class="becomeSpeaker__desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
             incididunt ut dolore</p>
         </div>
         <div class="becomeSpeaker__btnBlock">
-          <router-link to="/register" class="becomeSpeaker__link">Register today</router-link>
+          <router-link to="/register" class="becomeSpeaker__link">{{ $t('register')['linkContent'] }}</router-link>
         </div>
       </div>
     </div>
@@ -275,7 +277,6 @@
         </div>
       </div>
     </div>
-    <ImageCarousel />
   </div>
 </template>
 
@@ -284,7 +285,6 @@ import TheHeader from "@/layout/TheHeader";
 import OurStory from "@/components/OurStory";
 import MainTicket from "@/components/MainTicket";
 import DoctorInfo from "@/components/DoctorInfo";
-import ImageCarousel from "@/components/ImageCarousel.vue";
 
 import {ref} from 'vue';
 import { defineComponent } from 'vue'
@@ -293,6 +293,9 @@ import { Pagination, Navigation, Keyboard } from 'swiper'
 import 'swiper/css'
 import 'swiper/css/pagination'
 import 'swiper/css/navigation'
+
+import {useStore} from "vuex";
+import {computed} from "vue";
 defineComponent({
   name: 'swiper-example-keyboard-control',
   title: 'Keyboard control',
@@ -317,6 +320,12 @@ defineComponent({
 })
 // Add the event listener with passive: true
 let user = JSON.parse(localStorage.getItem('data'));
+const store = useStore()
+
+// change Language
+const $t = computed(()=> {
+  return store.getters.getLanguage
+})
 </script>
 
 <style lang="scss">
@@ -349,6 +358,17 @@ body {
     display: flex;
     justify-content: space-between;
     box-sizing: border-box;
+
+    @media(max-width: 992px) {
+      max-width: 720px;
+      row-gap: 25px;
+      flex-wrap: wrap;
+    }
+
+    @media(max-width: 768px) {
+      max-width: 540px;
+      flex-direction: column;
+    }
   }
 
   &__contactUs {
@@ -362,11 +382,30 @@ body {
     margin: 0 auto;
     padding: 0 20px;
     box-sizing: border-box;
+
+    @media(max-width: 992px) {
+      max-width: 720px;
+    }
+
+    @media(max-width: 768px) {
+      max-width: 540px;
+    }
   }
 
   &__contactContent {
     display: flex;
     justify-content: space-between;
+
+    @media(max-width: 992px) {
+      flex-direction: column;
+      row-gap: 15px;
+    }
+
+    & .pricingTicket {
+      @media(max-width: 992px) {
+        max-width: unset;
+      }
+    }
   }
 
   &__mapBlock {
@@ -425,6 +464,16 @@ body {
     justify-content: space-between;
     padding: 55px 20px;
     box-sizing: border-box;
+
+    @media(max-width: 992px) {
+      max-width: 720px;
+      flex-wrap: wrap;
+      row-gap: 30px;
+    }
+
+    @media(max-width: 768px) {
+      max-width: 540px;
+    }
   }
 
   &__highlightImg {
@@ -440,6 +489,15 @@ body {
     position: relative;
     overflow: hidden;
     height: 100%;
+
+    @media(max-width: 992px) {
+      width: 320px;
+    }
+
+    @media(max-width: 768px) {
+      width: 100%;
+      max-width: unset;
+    }
 
     &:nth-child(2) {
       margin: 0 15px;
@@ -472,6 +530,10 @@ body {
     text-align: center;
     font-weight: 700;
     font-size: 36px;
+
+    @media(max-width: 992px) {
+      font-size: 30px;
+    }
   }
 
   &__videoWrapper {
@@ -492,6 +554,10 @@ body {
     background-color: #f0f8ff;
     padding: 120px 0;
     box-sizing: border-box;
+
+    @media(max-width: 768px) {
+      padding: 16px;
+    }
   }
 }
 
@@ -502,11 +568,27 @@ body {
     margin: 0 auto;
     padding: 0 20px;
     box-sizing: border-box;
+
+    @media(max-width: 992px) {
+      max-width: 720px;
+    }
+
+    @media(max-width: 768px) {
+      max-width: 540px;
+    }
+
+    @media(max-width: 500px) {
+      padding: 0;
+    }
   }
 
   &__descSection {
     width: 50%;
     position: relative;
+
+    @media(max-width: 992px) {
+      width: 100%;
+    }
 
     &:first-child {
       padding: 100px;
@@ -526,6 +608,10 @@ body {
   &__header {
     display: flex;
     justify-content: space-between;
+
+    @media(max-width: 992px) {
+      flex-direction: column;
+    }
   }
 
   &__main {
@@ -541,12 +627,25 @@ body {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+
+    @media(max-width: 992px) {
+      row-gap: 15px;
+    }
   }
 
   &__doctor {
     width: 24.5%;
     box-sizing: border-box;
     position: relative;
+
+    @media(max-width: 992px) {
+      flex-basis: 49%;
+    }
+
+    @media(max-width: 768px) {
+      flex-basis: unset;
+      width: 100%;
+    }
   }
 
 
@@ -573,11 +672,23 @@ body {
 .orderTable {
   padding: 100px 0;
 
+  &__tableWrapper {
+    overflow-x: auto;
+  }
+
   &__tableSection {
     max-width: 1320px;
     padding: 0 20px;
     box-sizing: border-box;
     margin: 0 auto;
+
+    @media(max-width: 992px) {
+      max-width: 720px;
+    }
+
+    @media(max-width: 768px) {
+      max-width: 540px;
+    }
   }
 
   &__table {
@@ -619,13 +730,27 @@ body {
   justify-content: space-between;
   align-items: center;
 
+  @media(max-width: 992px) {
+    max-width: 720px;
+  }
+
+  @media(max-width: 768px) {
+    max-width: 540px;
+  }
+
   @media(max-width: 960px) {
     flex-direction: column;
     align-items: unset;
   }
 
+
+
   &__info {
     width: 80%;
+
+    @media(max-width: 992px) {
+      width: 100%;
+    }
   }
 
   &__desc {
@@ -668,6 +793,14 @@ body {
   margin: 0 auto;
   padding: 0 20px;
   box-sizing: border-box;
+
+  @media(max-width: 992px) {
+    max-width: 720px;
+  }
+
+  @media(max-width: 768px) {
+    max-width: 540px;
+  }
 
   &__block {
     max-width: 750px;
@@ -719,6 +852,15 @@ body {
 
     &:nth-child(2) {
       margin: 0 20px;
+
+      @media(max-width: 768px) {
+        margin: 0 0 10px 0;
+      }
+    }
+
+    @media(max-width: 768px) {
+      max-width: unset;
+      margin-bottom: 10px;
     }
   }
 
@@ -726,6 +868,14 @@ body {
     display: flex;
     justify-content: space-between;
     margin-bottom: 20px;
+
+    @media(max-width: 992px) {
+      flex-direction: column;
+    }
+
+    @media(max-width: 768px) {
+      margin-bottom: 0;
+    }
   }
 
   &__message {
@@ -767,6 +917,10 @@ body {
 
 }
 
+.swiper {
+  margin: 0;
+}
+
 .swiper-horizontal>.swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal {
   bottom: 0 !important;
 }
@@ -776,7 +930,23 @@ body {
 }
 
 .swiper-horizontal {
-  width: 400px
+  width: 400px;
+
+  @media(max-width: 992px) {
+    width: 320px
+  }
+
+  @media(max-width: 768px) {
+    width: 100%;
+  }
+
+  &:nth-child(2) {
+    margin: 0 10px;
+
+    @media(max-width: 992px) {
+      margin: 0
+    }
+  }
 }
 .swiper-button-next {
   right: 14px;

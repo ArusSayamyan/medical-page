@@ -27,8 +27,20 @@
   border-radius: 20px;
   box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
 
+  @media(max-width: 992px) {
+    flex-basis: 48%;
+  }
+
+  @media(max-width: 992px) {
+    max-width: unset;
+  }
+
   &:nth-child(2) {
     margin: 0 20px;
+
+    @media(max-width: 992px) {
+      margin: 0;
+    }
   }
 
   &__name {
