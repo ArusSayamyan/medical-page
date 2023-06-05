@@ -1,32 +1,30 @@
 <template>
   <div class="story" id="aboutUs">
     <main-title
-        main="About"
-        important="Us"
+        :main="$t('aboutUs')['title']['mainWorld']"
+        :important="$t('aboutUs')['title']['mainTitle']"
     ></main-title>
     <div class="story__wrapper">
       <div class="story__block">
-        <h3 class="story__subTitle">The importance of Leadership Conference in 2022</h3>
-        <p class="story__desc">Leadership Event is one-page Bootstrap v5.1.3 CSS layout for your website. Thank you for
-          choosing TemplateMo website where you can instantly download free CSS templates at no cost.</p>
+        <h3 class="story__subTitle">{{ $t('aboutUs')['subTitle1'] }}</h3>
+        <p class="story__desc">{{ $t('aboutUs')['desc'] }}</p>
         <main-btn
-            btnContent="Meat speakers"
+            :btnContent="$t('aboutUs')['btnContent1']"
         ></main-btn>
         <main-btn
-            btnContent="Check out Schedule"
+            :btnContent="$t('aboutUs')['btnContent2']"
             :withBg="true"
         ></main-btn>
       </div>
       <div class="story__block">
-        <h3 class="story__subTitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-          incididunt ut dolore</h3>
+        <h3 class="story__subTitle">{{ $t('aboutUs')['subTitle2'] }}</h3>
         <div class="story__users">
           <img src="../assets/imgs/user1.jpg" alt="" class="story__userImg">
           <img src="../assets/imgs/user2.jpg" alt="" class="story__userImg">
           <img src="../assets/imgs/user3.jpg" alt="" class="story__userImg">
           <img src="../assets/imgs/user4.jpg" alt="" class="story__userImg">
           <img src="../assets/imgs/user5.jpg" alt="" class="story__userImg">
-          <p class="story__usersCount">120+ People are attending with us</p>
+          <p class="story__usersCount">120+ {{ $t('aboutUs')['usersCount'] }}</p>
         </div>
       </div>
     </div>
@@ -34,6 +32,14 @@
 </template>
 
 <script setup>
+import {useStore} from "vuex";
+import {computed} from "vue";
+
+const store = useStore()
+
+const $t = computed(()=> {
+  return store.getters.getLanguage
+})
 </script>
 
 <style scoped lang="scss">
@@ -44,18 +50,36 @@
   padding: 55px 20px;
   box-sizing: border-box;
 
+  @media(max-width: 992px) {
+    max-width: 720px;
+  }
+
+  @media(max-width: 768px) {
+    max-width: 540px;
+  }
+
   &__wrapper {
     width: 100%;
     display: flex;
     justify-content: space-between;
 
+    @media(max-width: 992px) {
+      flex-direction: column;
+    }
+
     @media(max-width: 765px) {
       flex-direction: column;
     }
+
   }
 
   &__block {
     width: 49%;
+
+    @media(max-width: 992px) {
+      width: 100%;
+      margin-bottom: 35px;
+    }
 
     @media(max-width: 765px) {
       width: 100%;
@@ -88,6 +112,10 @@
     padding: 45px 0;
     margin-top: 45px;
     border-top: 1px solid #dee2e6;
+
+    @media(max-width: 500px) {
+      padding-bottom: 0;
+    }
   }
 
   &__userImg {
@@ -106,6 +134,10 @@
     color: #717275;
     font-size: 18px;
     margin-left: 20px;
+
+    @media(max-width: 500px) {
+      font-size: 14px;
+    }
   }
 }
 </style>

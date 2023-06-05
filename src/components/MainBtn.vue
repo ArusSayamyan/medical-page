@@ -23,6 +23,12 @@ const props = defineProps({
   background: none;
   border-radius: 25px;
 
+  @media(max-width: 500px) {
+    font-size: 12px;
+    padding: 10px 15px;
+    margin-right: 15px;
+  }
+
   &:hover {
     background: #0dcaf0;
     color: #fff;

@@ -1,0 +1,46 @@
+{
+  "title": {
+    "mainWorld": "Семейная",
+    "mainTitle": "медицина"
+  },
+  "conferences": "Конференции",
+  "aboutUs": {
+    "title": {
+      "mainWorld": "О",
+      "mainTitle": "нас"
+    },
+    "subTitle1": "Важность Лидерской конференции в 2022 году",
+    "desc": "Leadership Event — это одностраничный CSS-макет Bootstrap v5.1.3 для вашего сайта. Благодарим вас за выбор веб-сайта TemplateMo, где вы можете мгновенно бесплатно загрузить бесплатные шаблоны CSS.",
+    "btnContent1": "Познакомьтесь с врачами",
+    "btnContent2": "Расписание",
+    "subTitle2": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut dolore",
+    "usersCount": "Люди идут вместе с нами"
+  },
+  "doctors": {
+    "title": {
+      "mainWorld": "Наши",
+      "mainTitle": "врачи"
+    },
+    "specialist1": "Невролог",
+    "specialist2": "Клинический психиатр",
+    "specialist3": "Онколог",
+    "specialist4": "пластический хирург"
+  },
+  "registration": {
+    "title": {
+      "mainWorld": "Таблица",
+      "mainTitle": "регистраций"
+    },
+    "docName": "Врач",
+    "date": "Дата",
+    "service": "Услуги",
+    "price": "Цена"
+  },
+  "register": {
+    "title": {
+      "mainWorld": "Зарегистрироваться",
+      "mainTitle": "сейчас"
+    },
+    "linkContent": "Зарегистрироваться"
+  }
+}

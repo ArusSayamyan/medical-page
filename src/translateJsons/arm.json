@@ -1,0 +1,46 @@
+{
+  "title": {
+    "mainWorld": "Ընտանեկան",
+    "mainTitle": "Բժշկություն"
+  },
+  "conferences": "Կոնֆերանսներ",
+  "aboutUs": {
+    "title": {
+      "mainWorld": "Մեր",
+      "mainTitle": "մասին"
+    },
+    "subTitle1": "Առաջնորդության համաժողովի կարևորությունը 2022 թվականին",
+    "desc": "Առաջնորդության միջոցառումը մեկ էջանոց Bootstrap v5.1.3 CSS դասավորություն է ձեր կայքի համար: Շնորհակալություն TemplateMo կայքը ընտրելու համար, որտեղ դուք կարող եք անմիջապես ներբեռնել անվճար CSS ձևանմուշներ՝ անվճար:",
+    "btnContent1": "Հանդիպեք բժիշկներին",
+    "btnContent2": "Ստուգեք ժամանակացույցը",
+    "subTitle2": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut dolore",
+    "usersCount": "Մարդիկ հետևում են մեզ"
+  },
+  "doctors": {
+    "title": {
+      "mainWorld": "Մեր",
+      "mainTitle": "բժիշկները"
+    },
+    "specialist1": "Նյարդաբան",
+    "specialist2": "Կլինիկական հոգեբույժ",
+    "specialist3": "Ուռուցքաբան",
+    "specialist4": "Պլաստիկ վիրաբույժ"
+  },
+  "registration": {
+    "title": {
+      "mainWorld": "Գրանցումների",
+      "mainTitle": "աղյուսակ"
+    },
+    "docName": "Բժիշկ",
+    "date": "Գրանցման ամսաթիվ",
+    "service": "Ծառայությունններ",
+    "price": "Ընդհանուր արժեք"
+  },
+  "register": {
+    "title": {
+      "mainWorld": "Գրանցվիր",
+      "mainTitle": "հիմա"
+    },
+    "linkContent": "Գրանցվել"
+  }
+}

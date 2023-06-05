@@ -55,6 +55,10 @@ function changeKey(event) {
 
   &__doctorName {
     font-size: 24px;
+
+    @media(max-width: 500px) {
+      font-size: 20px;
+    }
   }
 
   &__doctorSpecialization {

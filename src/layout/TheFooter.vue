@@ -69,6 +69,14 @@
     margin: 0 auto;
     padding: 0 20px;
     box-sizing: border-box;
+
+    @media(max-width: 992px) {
+      max-width: 720px;
+    }
+
+    @media(max-width: 768px) {
+      max-width: 540px;
+    }
   }
 
   &__logoBlock {
@@ -104,6 +112,10 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    @media(max-width: 500px) {
+      flex-wrap: wrap;
+    }
   }
 
   &__socialLink {
@@ -131,12 +143,25 @@
     display: flex;
     justify-content: space-between;
 
+    @media(max-width: 992px) {
+      flex-direction: column;
+    }
+
   }
 
   &__linksList {
     padding: 0;
     list-style: none;
     display: flex;
+
+    @media(max-width: 992px) {
+      margin: 0;
+    }
+
+    @media(max-width: 500px) {
+      flex-wrap: wrap;
+    }
+
   }
 
   &__linkItem {
