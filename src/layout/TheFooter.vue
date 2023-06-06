@@ -46,7 +46,7 @@
           <p class="footer__copyrightText">Copyright © 2022 Leadership Event Co., Ltd.<br>
             All Rights Reserved.<br><br>
          Design: TemplateMo</p>
-          <a href="#" class="footer__scrollLink">
+          <a href="#" class="footer__scrollLink" v-if="showArrow">
             <img src="../assets/icons/arrow-up.svg" alt="arrow" class="header__arrowDown">
           </a>
         </div>
@@ -56,7 +56,15 @@
 </template>
 
 <script setup>
-
+import {ref} from 'vue'
+const showArrow = ref(false)
+window.addEventListener('scroll', () => {
+  if(document.documentElement.scrollTop > 100) {
+    showArrow.value = true
+  }else {
+    showArrow.value = false
+  }
+});
 </script>
 
 <style scoped lang="scss">
