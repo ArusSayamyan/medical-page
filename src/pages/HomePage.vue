@@ -15,37 +15,43 @@
         <swiper-vue
             class="swiper"
             :slides-per-view="1"
-            :space-between="20"
+            :space-between="15"
             :keyboard="{ enabled: true }"
             swiper.animating=true
+            :effect="'fade'"
+            :modules="modules"
+            :navigation="true"
+            :pagination="{
+      clickable: true,
+    }"
         >
           <swiper-slide class="slide">
-        <div class="mainContainer__highlight">
-          <img src="../assets/icons/hightlight1.jpg" alt="" class="mainContainer__highlightImg">
-          <div class="mainContainer__highlightContent">
-            <h3 class="mainContainer__highlightTitle">2019 {{ $t('conferences')}}</h3>
-          </div>
-        </div>
+            <div class="mainContainer__highlight">
+              <img src="../assets/icons/hightlight1.jpg" alt="" class="mainContainer__highlightImg">
+              <div class="mainContainer__highlightContent">
+                <h3 class="mainContainer__highlightTitle">2019 {{ $t('conferences') }}</h3>
+              </div>
+            </div>
+          </swiper-slide>
+          <swiper-slide class="slide" data-swiper-autoplay="2000">
+            <div class="mainContainer__highlight">
+              <img src="../assets/imgs/medConf2.jpg" alt="" class="mainContainer__highlightImg">
+            </div>
           </swiper-slide>
           <swiper-slide class="slide">
-          <div class="mainContainer__highlight">
-            <img src="../assets/imgs/medConf2.jpg" alt="" class="mainContainer__highlightImg">
-          </div>
+            <div class="mainContainer__highlight">
+              <img src="../assets/imgs/medConf3.jpg" alt="" class="mainContainer__highlightImg">
+            </div>
           </swiper-slide>
-          <swiper-slide class="slide">
-          <div class="mainContainer__highlight">
-            <img src="../assets/imgs/medConf3.jpg" alt="" class="mainContainer__highlightImg">
-          </div>
+          <swiper-slide class="slide" data-swiper-autoplay="2000">
+            <div class="mainContainer__highlight">
+              <img src="../assets/imgs/medConf4.jpg" alt="" class="mainContainer__highlightImg">
+            </div>
           </swiper-slide>
-          <swiper-slide class="slide">
-          <div class="mainContainer__highlight">
-            <img src="../assets/imgs/medConf4.jpg" alt="" class="mainContainer__highlightImg">
-          </div>
-          </swiper-slide>
-          <swiper-slide class="slide">
-          <div class="mainContainer__highlight">
-            <img src="../assets/imgs/medConf6.jpg" alt="" class="mainContainer__highlightImg">
-          </div>
+          <swiper-slide class="slide" data-swiper-autoplay="2000">
+            <div class="mainContainer__highlight">
+              <img src="../assets/imgs/medConf6.jpg" alt="" class="mainContainer__highlightImg">
+            </div>
           </swiper-slide>
         </swiper-vue>
         <swiper-vue
@@ -54,12 +60,18 @@
             :space-between="20"
             :keyboard="{ enabled: true }"
             swiper.animating=true
+            :effect="'fade'"
+            :modules="modules"
+            :navigation="true"
+            :pagination="{
+            clickable: true,
+    }"
         >
           <swiper-slide class="slide">
             <div class="mainContainer__highlight">
               <img src="../assets/imgs/medConf5.jpg" alt="" class="mainContainer__highlightImg">
               <div class="mainContainer__highlightContent">
-                <h3 class="mainContainer__highlightTitle">2021 {{ $t('conferences')}}</h3>
+                <h3 class="mainContainer__highlightTitle">2021 {{ $t('conferences') }}</h3>
               </div>
             </div>
           </swiper-slide>
@@ -90,12 +102,19 @@
             :space-between="20"
             :keyboard="{ enabled: true }"
             swiper.animating=true
+            :effect="'fade'"
+            :modules="modules"
+            :navigation="true"
+            :pagination="{
+            clickable: true,
+            }"
+
         >
           <swiper-slide class="slide">
             <div class="mainContainer__highlight">
               <img src="../assets/imgs/medConf15.jpg" alt="" class="mainContainer__highlightImg">
               <div class="mainContainer__highlightContent">
-                <h3 class="mainContainer__highlightTitle">2022 {{ $t('conferences')}}</h3>
+                <h3 class="mainContainer__highlightTitle">2022 {{ $t('conferences') }}</h3>
               </div>
             </div>
           </swiper-slide>
@@ -134,7 +153,8 @@
       <div class="speakers__wrapper">
         <div class="speakers__header">
           <div class="speakers__descSection">
-            <main-title :main="$t('doctors')['title']['mainWorld']" :important="$t('doctors')['title']['mainTitle']"></main-title>
+            <main-title :main="$t('doctors')['title']['mainWorld']"
+                        :important="$t('doctors')['title']['mainTitle']"></main-title>
             <p class="speakers__desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
               incididunt ut dolore</p>
           </div>
@@ -171,15 +191,16 @@
 
     <div class="mainContainer__orderTable orderTable">
       <div class="orderTable__tableSection">
-        <main-title :main="$t('registration')['title']['mainWorld']" :important="$t('registration')['title']['mainTitle']"></main-title>
+        <main-title :main="$t('registration')['title']['mainWorld']"
+                    :important="$t('registration')['title']['mainTitle']"></main-title>
         <div class="orderTable__tableWrapper">
           <table class="orderTable__table">
             <thead class="orderTable__thead">
             <tr>
               <th>{{ $t('registration')['docName'] }}</th>
               <th>{{ $t('registration')['date'] }}</th>
-              <th>{{  $t('registration')['service'] }}</th>
-              <th>{{  $t('registration')['price'] }}</th>
+              <th>{{ $t('registration')['service'] }}</th>
+              <th>{{ $t('registration')['price'] }}</th>
             </tr>
             </thead>
             <tbody class="orderTable__tbody">
@@ -214,7 +235,8 @@
     <div class="mainContainer__becomeSpeaker" id="register">
       <div class="becomeSpeaker">
         <div class="becomeSpeaker__info">
-          <main-title :main="$t('register')['title']['mainWorld']" :important="$t('register')['title']['mainTitle']" :isWhite="true"></main-title>
+          <main-title :main="$t('register')['title']['mainWorld']" :important="$t('register')['title']['mainTitle']"
+                      :isWhite="true"></main-title>
           <p class="becomeSpeaker__desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
             incididunt ut dolore</p>
         </div>
@@ -286,46 +308,32 @@ import OurStory from "@/components/OurStory";
 import MainTicket from "@/components/MainTicket";
 import DoctorInfo from "@/components/DoctorInfo";
 
-import {ref} from 'vue';
-import { defineComponent } from 'vue'
-import { Pagination, Navigation, Keyboard } from 'swiper'
-// import { Swiper, SwiperSlide } from 'swiper/vue'
 import 'swiper/css'
-import 'swiper/css/pagination'
-import 'swiper/css/navigation'
+import "swiper/css/effect-fade";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 
 import {useStore} from "vuex";
 import {computed} from "vue";
-defineComponent({
-  name: 'swiper-example-keyboard-control',
-  title: 'Keyboard control',
-  url: import.meta.url,
-  setup() {
-    const pageNum = ref(1)
-    const onSlideChange = () => {
-      if(pageNum.value === 1) {
-        pageNum.value++
-      }
-      else if(pageNum.value === 2) {
-        pageNum.value--
-      }
-      console.dir(Pagination);
-    };
-    return {
-      modules: [Pagination, Navigation, Keyboard],
-      onSlideChange,
-      pageNum
-    }
-  }
-})
+
+import {SwiperSlide} from "swiper/vue"
+// import required modules
+import {EffectFade, Navigation, Pagination} from "swiper";
+
+const modules = [EffectFade, Navigation, Pagination]
+
+
 // Add the event listener with passive: true
 let user = JSON.parse(localStorage.getItem('data'));
 const store = useStore()
 
 // change Language
-const $t = computed(()=> {
+const $t = computed(() => {
   return store.getters.getLanguage
+
 })
+
+
 </script>
 
 <style lang="scss">
@@ -745,7 +753,6 @@ body {
   }
 
 
-
   &__info {
     width: 80%;
 
@@ -919,7 +926,7 @@ body {
   margin: 0;
 }
 
-.swiper-horizontal>.swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal {
+.swiper-horizontal > .swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal {
   bottom: 0 !important;
 }
 
@@ -929,6 +936,7 @@ body {
 
 .swiper-horizontal {
   width: 400px;
+  cursor: grab;
 
   @media(max-width: 992px) {
     width: 320px
@@ -946,6 +954,7 @@ body {
     }
   }
 }
+
 .swiper-button-next {
   right: 14px;
   left: auto;
@@ -955,6 +964,7 @@ body {
   height: 10px;
   color: #000;
 }
+
 .swiper-button-prev {
   right: 64px;
   left: auto;
@@ -968,7 +978,17 @@ body {
 .swiper-button-next::after {
   font-size: 14px;
 }
+
 .swiper-button-prev::after {
   font-size: 14px;
 }
+
+.swiper-pagination-bullet {
+  background: #c7d2fe;
+}
+
+.swiper-pagination-bullet-active {
+  background: #ffff !important;
+}
+
 </style>
