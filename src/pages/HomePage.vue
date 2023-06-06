@@ -603,6 +603,7 @@ body {
   &__lead {
     width: 100%;
     height: 100%;
+    object-fit: cover;
   }
 
   &__header {
@@ -869,12 +870,9 @@ body {
     justify-content: space-between;
     margin-bottom: 20px;
 
-    @media(max-width: 992px) {
-      flex-direction: column;
-    }
-
     @media(max-width: 768px) {
       margin-bottom: 0;
+      flex-direction: column;
     }
   }
 

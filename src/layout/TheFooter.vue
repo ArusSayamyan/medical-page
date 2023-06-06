@@ -192,6 +192,10 @@
     text-align: center;
     display: inline-block;
     margin: auto;
+    position: fixed;
+    bottom: 70px;
+    right: 70px;
+    z-index: 1;
 
     &:hover {
       background: #0dcaf0;
