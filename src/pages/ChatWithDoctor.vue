@@ -14,7 +14,6 @@
            @click="sendMessage($event, message.message)">{{ message.message }}</p>
       </div>
     </div>
-
   </div>
 </template>
 
@@ -80,11 +79,8 @@ function addAnswer(select) {
         object[object.length - 1].ans = text.answer
       }
     }
-
   }
 }
-
-
 </script>
 
 <style scoped lang="scss">
