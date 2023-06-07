@@ -6,6 +6,7 @@ import AboutPage from "./pages/AboutPage";
 import HomePage from "./pages/HomePage";
 import RegisterPage from "./pages/RegisterPage";
 import AboutDoctor from "./pages/AboutDoctor";
+import ChatWithDoctor from "./pages/ChatWithDoctor";
 
 const router = createRouter({
     history: createWebHistory(),
@@ -25,6 +26,10 @@ const router = createRouter({
         {
             path: '/aboutDoctor',
             component: AboutDoctor
+        },
+        {
+            path: '/chat',
+            component: ChatWithDoctor
         }
     ]
 })

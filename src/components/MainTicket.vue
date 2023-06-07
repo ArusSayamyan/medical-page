@@ -11,7 +11,7 @@
         <li class="pricingTicket__item">24/7 Support</li>
       </ul>
       <p class="pricingTicket__desc">Quick group meetings for multiple teams</p>
-      <main-btn btnContent="Buy ticket" withBg></main-btn>
+      <router-link to="/chat" class="pricingTicket__chat">Buy ticket</router-link>
     </div>
   </div>
 </template>
@@ -87,6 +87,21 @@
   &__desc {
     color: #717275;
     font-size: 18px;
+  }
+
+  &__chat {
+    padding: 10px 20px;
+    font-size: 16px;
+    margin-right: 20px;
+    cursor: pointer;
+    text-align: center;
+    background: none;
+    border-radius: 25px;
+    background: #273053;
+    border: 2px solid #273053;
+    color: #fff;
+    outline: none;
+    text-decoration: none;
   }
 }
 </style>
