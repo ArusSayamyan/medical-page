@@ -66,7 +66,7 @@ const doctors = ref([
   {name: 'William Stewart Agras', code: 'w1'},
   {name: 'Virginia Apgar', code: 'V2'},
   {name: 'Jean Astruc', code: 'J3'},
-  {name: 'Gerbrand Bakker ', code: 'G4'},
+  {name: 'Gerbrand Bakker', code: 'G4'},
   {name: 'Norman Bethune', code: 'N5'}
 ]);
 
