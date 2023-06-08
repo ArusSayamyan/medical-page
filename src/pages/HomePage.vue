@@ -265,7 +265,25 @@
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1511.091461689997!2d-73.9866630916883!3d40.758001294831736!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25855a96da09d%3A0x860bf5a5e1a00a68!2sTimes%20Square%2C%20New%20York%2C%20NY%2010036%2C%20USA!5e0!3m2!1sen!2ssg!4v1643035529098!5m2!1sen!2ssg"
                     width="100%" height="371.59" allowfullscreen="" loading="lazy"></iframe>
           </div>
-          <!--          <MainTicket/>-->
+          <div class="mainContainer__contactInfo">
+            <div class="mainContainer__contactHeader">
+              <h4 class="mainContainer__contactTitle">Times Square</h4>
+            </div>
+            <div class="mainContainer__contactMain">
+              <ul class="mainContainer__contactList">
+                <li class="mainContainer__contactItem mainContainer__contactItem--bolder">
+                  <img src="../assets/icons/geo.svg" alt="" class="mainContainer__contactGeo">
+                  102 South. 7th Street, New York, NY 10036, USA
+                </li>
+                <li class="mainContainer__contactItem">
+                  <img src="../assets/icons/envelope.svg" alt="" class="mainContainer__contactIcon">
+                  hi@company.com</li>
+                <li class="mainContainer__contactItem">
+                  <img src="../assets/icons/telephone.svg" alt="" class="mainContainer__contactIcon">
+                  010-020-0340</li>
+              </ul>
+            </div>
+          </div>
         </div>
 
 
@@ -285,7 +303,7 @@
               <div class="usersMessages__inputs">
                 <input type="text" class="usersMessages__input" placeholder="Name">
                 <input type="email" class="usersMessages__input" placeholder="Email">
-                <input type="text" class="usersMessages__input" placeholder="Subjecty">
+                <input type="text" class="usersMessages__input" placeholder="Subject">
               </div>
               <div class="usersMessages__opinion">
                 <textarea name="" placeholder="Message" id="" cols="30" rows="10"
@@ -316,7 +334,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 
 import {useStore} from "vuex";
-import {computed, ref} from "vue";
+import {computed, onMounted, ref} from "vue";
 
 // import required modules
 import {EffectFade, Navigation, Pagination} from "swiper";
@@ -324,6 +342,9 @@ import doctor2 from '../assets/imgs/user2.jpg';
 import doctor3 from '../assets/imgs/user3.jpg';
 import doctor4 from '../assets/imgs/user4.jpg';
 import doctor5 from '../assets/imgs/user5.jpg';
+import doctor6 from '../assets/imgs/user6.jpg';
+import doctor7 from '../assets/imgs/user7.jpg';
+import doctor8 from '../assets/imgs/user8.jpg';
 
 // import { Pagination } from 'swiper';
 const slidesPerView = ref(4)
@@ -351,18 +372,18 @@ const doctorsSlide = [
     docSpec: 'specialist4'
   },
   {
-    img: doctor2,
-    docName: 'Emily Ackerman',
+    img: doctor6,
+    docName: 'Robert Anderson',
     docSpec: 'specialist1'
   },
   {
-    img: doctor3,
-    docName: 'Dorcas Adaramola',
+    img: doctor7,
+    docName: 'Kathryn Barlow',
     docSpec: 'specialist2'
   },
   {
-    img: doctor4,
-    docName: 'Samantha Agar',
+    img: doctor8,
+    docName: 'Joseph Shaffer',
     docSpec: 'specialist3'
   },
 ]
@@ -383,7 +404,6 @@ function sliderMobile() {
   }else if(window.screen.availWidth < 993 && window.screen.availWidth > 768) {
     slidesPerView.value = 2
   }else if(window.screen.availWidth < 768) {
-    console.log(window.screen.width)
     slidesPerView.value = 1
   }
 }
@@ -392,7 +412,9 @@ window.addEventListener('resize', ()=> {
   sliderMobile();
 })
 
-
+onMounted(()=> {
+  sliderMobile();
+})
 </script>
 
 <style lang="scss">
@@ -408,6 +430,79 @@ body {
 }
 
 .mainContainer {
+
+  &__contactInfo {
+    width: 50%;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
+    margin-left: 15px;
+
+    @media(max-width: 992px) {
+      flex-basis: 48%;
+      max-width: unset;
+      margin-left: 0;
+      width: 100%;
+
+    }
+
+  }
+
+  &__contactGeo {
+    width: 27px;
+    height: 27px;
+    object-fit: cover;
+    margin: 5px 5px 0 0;
+  }
+
+  &__contactIcon {
+    width: 21px;
+    margin-right: 5px;
+  }
+
+  &__contactTitle {
+    margin: 0;
+    font-size: 36px;
+  }
+
+  &__contactHeader {
+    display: flex;
+    justify-content: space-between;
+    padding: 25px;
+    align-items: center;
+    background: #273053;
+    border-radius: 20px 20px 0 0;
+    color: #fff;
+    box-sizing: border-box;
+  }
+
+  &__contactMain {
+    padding: 30px;
+    box-sizing: border-box;
+  }
+
+  &__contactList {
+    padding: 0 0 30px;
+    list-style: none;
+    box-sizing: border-box;
+  }
+
+  &__contactItem {
+    color: #717275;
+    font-size: 20px;
+    font-weight: 700;
+    display: flex;
+    align-items: flex-start;
+
+    &:not(:last-child) {
+      margin-bottom: 10px;
+    }
+
+    &--bolder {
+      font-size: 28px;
+      color: #000;
+    }
+  }
+
 
   &__nav {
     background-color: #273053;
@@ -475,7 +570,11 @@ body {
   }
 
   &__mapBlock {
-    width: 100%;
+    width: 50%;
+
+    @media(max-width: 992px) {
+      width: 100%;
+    }
   }
 
   &__map {
@@ -1055,6 +1154,18 @@ body {
 
 .speakers__members .swiper-horizontal {
   width: 100% !important;
+  padding: 20px 0;
 }
+
+.speakers__members .swiper-pagination-bullet {
+  background: #6b6f82;
+}
+
+.swiper-pagination-bullet-active {
+  background: #635f82 !important;
+}
+
+
+
 
 </style>

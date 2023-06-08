@@ -82,7 +82,6 @@ function changeSliderValue() {
   }else if(window.screen.availWidth < 1024 && window.screen.availWidth > 768) {
     slidesPerView.value = 2
   }else if(window.screen.availWidth < 768) {
-    console.log(window.screen.width)
     slidesPerView.value = 1
   }
 }
