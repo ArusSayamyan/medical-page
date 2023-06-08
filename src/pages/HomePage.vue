@@ -249,7 +249,7 @@
     <!--    tickets block-->
 
     <div class="mainContainer__tickets" id="tickets">
-      <main-title main="Get Your" important=" Tickets" centered></main-title>
+      <main-title :main="$t('primaryCare')['title']['mainWorld']" :important="$t('primaryCare')['title']['mainTitle']" centered></main-title>
       <div class="mainContainer__ticketsWrapper">
         <MainTicket/>
       </div>

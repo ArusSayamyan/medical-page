@@ -1,4 +1,13 @@
 {
+  "nav": {
+    "home": "Главная страница",
+    "primaryCare": "Первая помощь",
+    "doctors": "Наши врачи",
+    "register": "Регистрация",
+    "yourOpinion": "ваше мнение",
+    "contact": "Контакты",
+    "aboutUs": "о нас"
+  },
   "title": {
     "mainWorld": "Семейная",
     "mainTitle": "медицина"
@@ -42,5 +51,11 @@
       "mainTitle": "сейчас"
     },
     "linkContent": "Зарегистрироваться"
+  },
+  "primaryCare": {
+    "title": {
+      "mainWorld": "Первая",
+      "mainTitle": "помощь"
+    }
   }
 }

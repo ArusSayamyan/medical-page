@@ -47,7 +47,7 @@ const messages = ref([
   {
     id: 'message4',
     message: 'can you tell me your address?',
-    answer: 'send address'
+    answer: 'Our address is 102 South. 7th Street, New York, NY 10036, USA'
   },
 ])
 

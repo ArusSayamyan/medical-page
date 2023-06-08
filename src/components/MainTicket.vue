@@ -20,7 +20,7 @@
         <li class="pricingTicket__item">24/7 Support</li>
       </ul>
       <p class="pricingTicket__desc">Quick group meetings for multiple teams</p>
-      <router-link to="/chat" class="pricingTicket__chat">Buy ticket</router-link>
+      <router-link to="/chat" class="pricingTicket__chat">Help</router-link>
     </div>
   </div>
     </swiper-slide>
@@ -46,7 +46,7 @@ const modules = [Pagination]
 const  services  = ref([
   {
     id: 'serv1',
-    doctorName: 'Illiam Agras',
+    doctorName: 'William Agras',
     service: ['Dental care', 'Preventative care'],
     price: 300
   },
