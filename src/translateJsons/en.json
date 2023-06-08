@@ -1,4 +1,13 @@
 {
+  "nav": {
+    "home": "Home",
+    "primaryCare": "Primary care",
+    "doctors": "Our doctors",
+    "register": "Registerc now",
+    "yourOpinion": "your opinion",
+    "contact": "Contact",
+    "aboutUs": "about us"
+  },
   "title": {
     "mainWorld": "FAMILY",
     "mainTitle": "MEDICINE AND INTERNAL MEDICINE"
@@ -42,5 +51,12 @@
       "mainTitle": "now"
     },
     "linkContent": "Register"
+  },
+  "primaryCare": {
+    "title": {
+      "mainWorld": "primary",
+      "mainTitle": "care"
+    }
+
   }
 }

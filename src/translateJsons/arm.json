@@ -1,4 +1,13 @@
 {
+  "nav": {
+    "home": "Գլխավոր",
+    "primaryCare": "Առաջին բուժօգնություն",
+    "doctors": "Մեր բժիշկները",
+    "register": "գրանցվել հիմա",
+    "yourOpinion": "Ձեր կարծիքը",
+    "contact": "Կոնտակտներ",
+    "aboutUs": "Մեր մասին"
+  },
   "title": {
     "mainWorld": "Ընտանեկան",
     "mainTitle": "Բժշկություն"
@@ -42,5 +51,11 @@
       "mainTitle": "հիմա"
     },
     "linkContent": "Գրանցվել"
+  },
+  "primaryCare": {
+    "title": {
+      "mainWorld": "Առաջին",
+      "mainTitle": "բուժօգնություն"
+    }
   }
 }

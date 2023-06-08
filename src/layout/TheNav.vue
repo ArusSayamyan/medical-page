@@ -6,14 +6,14 @@
     </div>
     <ul class="nav__linksContent" :class="showMobileMenu ? 'open-menu' : 'closed-menu'">
       <li class="nav__item">
-        <router-link to="/" class="nav__link" @click="hideNavList">Home</router-link>
+        <router-link to="/" class="nav__link" @click="hideNavList">{{ $t('nav')['home'] }}</router-link>
       </li>
-      <li class="nav__item"><a href="#tickets" class="nav__link" @click="hideNavList">PRIMARY CARE</a></li>
-      <li class="nav__item"><a href="#ourDoctors" class="nav__link" @click="hideNavList">Our Doctors</a></li>
-      <li class="nav__item"><a href="#register" class="nav__link" @click="hideNavList">Register now</a></li>
-      <li class="nav__item"><a href="#opinion" class="nav__link" @click="hideNavList">your opinion</a></li>
-      <li class="nav__item"><a href="#contactUs" class="nav__link" @click="hideNavList">CONTACT</a></li>
-      <li class="nav__item"><a href="#aboutUs" class="nav__link" @click="hideNavList">About us</a></li>
+      <li class="nav__item"><a href="#tickets" class="nav__link" @click="hideNavList">{{ $t('nav')['primaryCare'] }}</a></li>
+      <li class="nav__item"><a href="#ourDoctors" class="nav__link" @click="hideNavList">{{ $t('nav')['doctors'] }}</a></li>
+      <li class="nav__item"><a href="#register" class="nav__link" @click="hideNavList">{{ $t('nav')['register'] }}</a></li>
+      <li class="nav__item"><a href="#opinion" class="nav__link" @click="hideNavList">{{ $t('nav')['yourOpinion'] }}</a></li>
+      <li class="nav__item"><a href="#contactUs" class="nav__link" @click="hideNavList">{{ $t('nav')['contact'] }}</a></li>
+      <li class="nav__item"><a href="#aboutUs" class="nav__link" @click="hideNavList">{{ $t('nav')['aboutUs'] }}</a></li>
     </ul>
 
     <div class="nav__languages">
@@ -37,9 +37,11 @@
 
 <script setup>
 import {useStore} from "vuex";
+import {computed} from "vue";
+
 import {ref} from "vue";
 const showMobileMenu = ref(false)
-const store = useStore();
+const store = useStore()
 
 function setLanguage(language) {
   store.commit('changeLanguage', language)
@@ -52,6 +54,11 @@ function showNavList() {
 function hideNavList() {
   showMobileMenu.value = false;
 }
+
+//json
+const $t = computed(()=> {
+  return store.getters.getLanguage
+})
 
 </script>
 
