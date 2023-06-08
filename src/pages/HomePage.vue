@@ -166,22 +166,22 @@
         </div>
         <div class="speakers__main">
           <div class="speakers__members">
-            <div class="speakers__doctor">
-              <img src="../assets/imgs/user2.jpg" alt="" class="speakers__member">
-              <doctor-info doctorName="Emily Ackerman" :doctorSpec="$t('doctors')['specialist1']"></doctor-info>
-            </div>
-            <div class="speakers__doctor">
-              <img src="../assets/imgs/user3.jpg" alt="" class="speakers__member">
-              <doctor-info doctorName="Dorcas Adaramola" :doctorSpec="$t('doctors')['specialist2']"></doctor-info>
-            </div>
-            <div class="speakers__doctor">
-              <img src="../assets/imgs/user4.jpg" alt="" class="speakers__member">
-              <doctor-info doctorName="Samantha Agar" :doctorSpec="$t('doctors')['specialist3']"></doctor-info>
-            </div>
-            <div class="speakers__doctor">
-              <img src="../assets/imgs/user5.jpg" alt="" class="speakers__member">
-              <doctor-info doctorName="Richard Austin" :doctorSpec="$t('doctors')['specialist4']"></doctor-info>
-            </div>
+            <swiper
+                :slidesPerView="slidesPerView"
+                :spaceBetween="20"
+                :pagination="{
+                clickable: true,
+                }"
+                :modules="modules"
+                class="mySwiper"
+            >
+              <swiper-slide v-for="obj in doctorsSlide" :key="obj.docSpec">
+                <div class="speakers__doctor">
+                  <img :src="obj.img" alt="" class="speakers__member">
+                  <doctor-info :doctorName="obj.docName" :doctorSpec="$t('doctors')[obj.docSpec]"></doctor-info>
+                </div>
+              </swiper-slide>
+            </swiper>
           </div>
         </div>
       </div>
@@ -265,7 +265,7 @@
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1511.091461689997!2d-73.9866630916883!3d40.758001294831736!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25855a96da09d%3A0x860bf5a5e1a00a68!2sTimes%20Square%2C%20New%20York%2C%20NY%2010036%2C%20USA!5e0!3m2!1sen!2ssg!4v1643035529098!5m2!1sen!2ssg"
                     width="100%" height="371.59" allowfullscreen="" loading="lazy"></iframe>
           </div>
-<!--          <MainTicket/>-->
+          <!--          <MainTicket/>-->
         </div>
 
 
@@ -301,6 +301,10 @@
 </template>
 
 <script setup>
+import { Swiper, SwiperSlide } from 'swiper/vue';
+import 'swiper/css';
+
+import 'swiper/css/pagination';
 import TheHeader from "@/layout/TheHeader";
 import OurStory from "@/components/OurStory";
 import MainTicket from "@/components/MainTicket";
@@ -312,15 +316,56 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 
 import {useStore} from "vuex";
-import {computed} from "vue";
+import {computed, ref} from "vue";
 
-import {SwiperSlide} from "swiper/vue"
 // import required modules
 import {EffectFade, Navigation, Pagination} from "swiper";
+import doctor2 from '../assets/imgs/user2.jpg';
+import doctor3 from '../assets/imgs/user3.jpg';
+import doctor4 from '../assets/imgs/user4.jpg';
+import doctor5 from '../assets/imgs/user5.jpg';
 
+// import { Pagination } from 'swiper';
+const slidesPerView = ref(4)
 const modules = [EffectFade, Navigation, Pagination]
 
-
+const doctorsSlide = [
+  {
+    img: doctor2,
+    docName: 'Emily Ackerman',
+    docSpec: 'specialist1'
+  },
+  {
+    img: doctor3,
+    docName: 'Dorcas Adaramola',
+    docSpec: 'specialist2'
+  },
+  {
+    img: doctor4,
+    docName: 'Samantha Agar',
+    docSpec: 'specialist3'
+  },
+  {
+    img: doctor5,
+    docName: 'Richard Austin',
+    docSpec: 'specialist4'
+  },
+  {
+    img: doctor2,
+    docName: 'Emily Ackerman',
+    docSpec: 'specialist1'
+  },
+  {
+    img: doctor3,
+    docName: 'Dorcas Adaramola',
+    docSpec: 'specialist2'
+  },
+  {
+    img: doctor4,
+    docName: 'Samantha Agar',
+    docSpec: 'specialist3'
+  },
+]
 // Add the event listener with passive: true
 let user = JSON.parse(localStorage.getItem('data'));
 const store = useStore()
@@ -329,6 +374,22 @@ const store = useStore()
 const $t = computed(() => {
   return store.getters.getLanguage
 
+})
+
+
+function sliderMobile() {
+  if(window.screen.availWidth > 992) {
+    slidesPerView.value = 4
+  }else if(window.screen.availWidth < 993 && window.screen.availWidth > 768) {
+    slidesPerView.value = 2
+  }else if(window.screen.availWidth < 768) {
+    console.log(window.screen.width)
+    slidesPerView.value = 1
+  }
+}
+
+window.addEventListener('resize', ()=> {
+  sliderMobile();
 })
 
 
@@ -343,7 +404,6 @@ const $t = computed(() => {
 body {
   margin: 0;
   padding: 0;
-  //background-color: #273053;
   font-family: sans-serif;
 }
 
@@ -641,7 +701,7 @@ body {
   }
 
   &__doctor {
-    width: 24.5%;
+    width: 100%;
     box-sizing: border-box;
     position: relative;
 
@@ -991,6 +1051,10 @@ body {
 
 .swiper-button-prev, .swiper-button-next {
   display: none;
+}
+
+.speakers__members .swiper-horizontal {
+  width: 100% !important;
 }
 
 </style>
