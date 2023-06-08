@@ -21,6 +21,9 @@ import doctor2 from '../assets/imgs/user2.jpg'
 import doctor3 from '../assets/imgs/user3.jpg'
 import doctor4 from '../assets/imgs/user4.jpg'
 import doctor5 from '../assets/imgs/user5.jpg'
+import doctor6 from '../assets/imgs/user6.jpg'
+import doctor7 from '../assets/imgs/user7.jpg'
+import doctor8 from '../assets/imgs/user8.jpg'
 
 const store = useStore();
 const key = store.getters.getKey
@@ -81,6 +84,39 @@ let doctors = [
         '\n' +
         'Embracing both fellow students and those living on the island, Samantha became actively involved in the ' +
         'school, and in the community on Nevis. “There were students from all around the world and the diversity was great and so positive. “ In addition to forging bonds with her fellow students, she was awarded the prestigious "Premier of Nevis" award on the island for her exceptional volunteer work and involvement with the local community. “I got to know a woman who was a breast cancer survivor there, and she had started the “Pink Lilly Program” to help educate others about the topic of breast cancer, screening and provide resources to those in need . I worked with her throughout my time on the island to help promote her vision, it was inspiring.”',    imgSrc: doctor5
+  },
+  {
+    name: 'Robert Anderson',
+    info: 'Robert Anderson practiced as a registered nurse both in labor and delivery and the neonatal intensive care unit at a hospital in Mississauga, Ontario after earning her Bachelor' +
+        ' of Science in Nursing. As an undergraduate student at McMaster University School of Nursing, she was a standout student and received an award for Outstanding Academic Achievement.\n' +
+        '\n' +
+        'Going to medical school was never far from her mind though. “I worked with a resident at my hospital' +
+        ' who had told me about how she attended medical school in the Caribbean. I didn’t really know much about Caribbean medical schools. She had gone to MUA and highly recommended it.” Samantha applied and was accepted into the Gateway Program at MUA. “It was an awesome program and a good way to review everything that I had learned a while back. The program really helps prepare you for the first semester of medical school.”\n' +
+        '\n' +
+        'Embracing both fellow students and those living on the island, Samantha became actively involved in the ' +
+        'school, and in the community on Nevis. “There were students from all around the world and the diversity was great and so positive. “ In addition to forging bonds with her fellow students, she was awarded the prestigious "Premier of Nevis" award on the island for her exceptional volunteer work and involvement with the local community. “I got to know a woman who was a breast cancer survivor there, and she had started the “Pink Lilly Program” to help educate others about the topic of breast cancer, screening and provide resources to those in need . I worked with her throughout my time on the island to help promote her vision, it was inspiring.”',    imgSrc: doctor6
+  },
+  {
+    name: 'Kathryn Barlow',
+    info: 'Kathryn Barlow practiced as a registered nurse both in labor and delivery and the neonatal intensive care unit at a hospital in Mississauga, Ontario after earning her Bachelor' +
+        ' of Science in Nursing. As an undergraduate student at McMaster University School of Nursing, she was a standout student and received an award for Outstanding Academic Achievement.\n' +
+        '\n' +
+        'Going to medical school was never far from her mind though. “I worked with a resident at my hospital' +
+        ' who had told me about how she attended medical school in the Caribbean. I didn’t really know much about Caribbean medical schools. She had gone to MUA and highly recommended it.” Samantha applied and was accepted into the Gateway Program at MUA. “It was an awesome program and a good way to review everything that I had learned a while back. The program really helps prepare you for the first semester of medical school.”\n' +
+        '\n' +
+        'Embracing both fellow students and those living on the island, Samantha became actively involved in the ' +
+        'school, and in the community on Nevis. “There were students from all around the world and the diversity was great and so positive. “ In addition to forging bonds with her fellow students, she was awarded the prestigious "Premier of Nevis" award on the island for her exceptional volunteer work and involvement with the local community. “I got to know a woman who was a breast cancer survivor there, and she had started the “Pink Lilly Program” to help educate others about the topic of breast cancer, screening and provide resources to those in need . I worked with her throughout my time on the island to help promote her vision, it was inspiring.”',    imgSrc: doctor7
+  },
+  {
+    name: 'Joseph Shaffer',
+    info: 'Joseph Shaffer practiced as a registered nurse both in labor and delivery and the neonatal intensive care unit at a hospital in Mississauga, Ontario after earning her Bachelor' +
+        ' of Science in Nursing. As an undergraduate student at McMaster University School of Nursing, she was a standout student and received an award for Outstanding Academic Achievement.\n' +
+        '\n' +
+        'Going to medical school was never far from her mind though. “I worked with a resident at my hospital' +
+        ' who had told me about how she attended medical school in the Caribbean. I didn’t really know much about Caribbean medical schools. She had gone to MUA and highly recommended it.” Samantha applied and was accepted into the Gateway Program at MUA. “It was an awesome program and a good way to review everything that I had learned a while back. The program really helps prepare you for the first semester of medical school.”\n' +
+        '\n' +
+        'Embracing both fellow students and those living on the island, Samantha became actively involved in the ' +
+        'school, and in the community on Nevis. “There were students from all around the world and the diversity was great and so positive. “ In addition to forging bonds with her fellow students, she was awarded the prestigious "Premier of Nevis" award on the island for her exceptional volunteer work and involvement with the local community. “I got to know a woman who was a breast cancer survivor there, and she had started the “Pink Lilly Program” to help educate others about the topic of breast cancer, screening and provide resources to those in need . I worked with her throughout my time on the island to help promote her vision, it was inspiring.”',    imgSrc: doctor8
   }
 ]
 

@@ -192,7 +192,7 @@ window.addEventListener('scroll', () => {
   }
 
   &__scrollLink {
-    background: #f0f8ff;
+    background: #d0dae2;
     border-radius: 100px;
     width: 50px;
     height: 50px;
