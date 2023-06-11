@@ -68,6 +68,9 @@ const messages = ref([
 
 
 function sendMessage(event, selectedMessage) {
+  document.querySelectorAll('.chat__message').forEach(item => {
+    item.classList.add('chat__slideRight')
+  })
   if (event.target.textContent === selectedMessage) {
     selectedQuest.value.push({
       mess: selectedMessage,
@@ -82,7 +85,6 @@ function sendMessage(event, selectedMessage) {
         }
 
       }
-
     }
     setTimeout(() => {
       addAnswer(selectedMessage);
@@ -93,12 +95,16 @@ function sendMessage(event, selectedMessage) {
           selectedQuest.value[selectedQuest.value.length-1].animate = false
         }
       }
-    }, 3000)
+      document.querySelectorAll('.chat__message').forEach(item => {
+        item.classList.remove('chat__slideRight')
+      })
+    }, 4000)
 
     if (myElement.value.clientHeight < myElement.value.scrollHeight) {
       myElement.value.lastElementChild.scrollIntoView({behavior: 'smooth'})
       myElement.value.scrollTop = myElement.value.scrollHeight - myElement.value.clientHeight;
     }
+
   }
 
 
@@ -164,6 +170,66 @@ function selectColor() {
     border-radius: 5px;
     margin: 0 5px 5px 0;
     cursor: pointer;
+
+    &:nth-child(1) {
+      display: inline-block;
+      animation: slideLeft 0.5s forwards;
+      //animation-delay: 0.5s;
+      opacity: 0;
+      transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+    }
+    &:nth-child(2) {
+      display: inline-block;
+      animation: slideLeft 1s forwards;
+      //animation-delay: 1s;
+      opacity: 0;
+      transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+    }
+    &:nth-child(3) {
+      display: inline-block;
+      animation: slideLeft 1.5s forwards;
+      //animation-delay: 1.5s;
+      opacity: 0;
+      transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+    }
+    &:nth-child(4) {
+      display: inline-block;
+      animation: slideLeft 2s forwards;
+      //animation-delay: 2s;
+      opacity: 0;
+      transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+    }
+  }
+
+  &__slideRight {
+    &:nth-child(1) {
+      display: inline-block;
+      animation: slideRight 2s forwards;
+      //animation-delay: 0.5s;
+      //opacity: 0;
+      transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+    }
+    &:nth-child(2) {
+      display: inline-block;
+      animation: slideRight 1.5s forwards;
+      //animation-delay: 1s;
+      //opacity: 0;
+      transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+    }
+    &:nth-child(3) {
+      display: inline-block;
+      animation: slideRight 1s forwards;
+      //animation-delay: 1.5s;
+      //opacity: 0;
+      transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+    }
+    &:nth-child(4) {
+      display: inline-block;
+      animation: slideRight 0.5s forwards;
+      //animation-delay: 0.5s;
+      //opacity: 0;
+      transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+    }
   }
 
   &__selectedQuest {
@@ -241,6 +307,7 @@ function selectColor() {
     font-weight: 700;
     display: block;
     margin: 0 auto;
+    cursor: pointer;
 
     @media(max-width: 520px){
       margin-top: 15px;
@@ -270,6 +337,29 @@ function selectColor() {
   44% {
     transform: translateY(0px);
     background-color: #83A4C457;
+  }
+}
+
+
+@keyframes slideLeft {
+  from {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+}
+
+@keyframes slideRight {
+  from {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(200px);
   }
 }
 </style>
