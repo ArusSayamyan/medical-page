@@ -68,6 +68,7 @@ const messages = ref([
 
 
 function sendMessage(event, selectedMessage) {
+  //add animation
   document.querySelectorAll('.chat__message').forEach(item => {
     item.classList.add('chat__slideRight')
   })
@@ -95,6 +96,8 @@ function sendMessage(event, selectedMessage) {
           selectedQuest.value[selectedQuest.value.length-1].animate = false
         }
       }
+
+      //Remove animation
       document.querySelectorAll('.chat__message').forEach(item => {
         item.classList.remove('chat__slideRight')
       })

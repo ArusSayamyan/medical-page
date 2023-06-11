@@ -249,7 +249,8 @@
     <!--    tickets block-->
 
     <div class="mainContainer__tickets" id="tickets">
-      <main-title :main="$t('primaryCare')['title']['mainWorld']" :important="$t('primaryCare')['title']['mainTitle']" centered></main-title>
+      <main-title :main="$t('primaryCare')['title']['mainWorld']" :important="$t('primaryCare')['title']['mainTitle']"
+                  centered></main-title>
       <div class="mainContainer__ticketsWrapper">
         <MainTicket/>
       </div>
@@ -277,10 +278,12 @@
                 </li>
                 <li class="mainContainer__contactItem">
                   <img src="../assets/icons/envelope.svg" alt="" class="mainContainer__contactIcon">
-                  hi@company.com</li>
+                  hi@company.com
+                </li>
                 <li class="mainContainer__contactItem">
                   <img src="../assets/icons/telephone.svg" alt="" class="mainContainer__contactIcon">
-                  010-020-0340</li>
+                  010-020-0340
+                </li>
               </ul>
             </div>
           </div>
@@ -299,15 +302,15 @@
             <h4 class="usersMessages__name">Please Say Hi</h4>
           </div>
           <div class="usersMessages__main">
-            <form class="usersMessages__form">
+            <form class="usersMessages__form" @submit.prevent="isItValid">
               <div class="usersMessages__inputs">
-                <input type="text" class="usersMessages__input" placeholder="Name">
-                <input type="email" class="usersMessages__input" placeholder="Email">
-                <input type="text" class="usersMessages__input" placeholder="Subject">
+                <input type="text" class="usersMessages__input" placeholder="Username" name="name" @keyup="validate($event.target, username)">
+                <input type="email" class="usersMessages__input" placeholder="Email" name="email" @keyup="validate($event.target, mail)">
+                <input type="text" class="usersMessages__input" placeholder="Subject" name="subject" @keyup="validate($event.target, dni)">
               </div>
               <div class="usersMessages__opinion">
-                <textarea name="" placeholder="Message" id="" cols="30" rows="10"
-                          class="usersMessages__message"></textarea>
+                <textarea name="message" placeholder="Message" id="" cols="30" rows="10"
+                          class="usersMessages__message" @keyup="validate($event.target, message)"></textarea>
               </div>
               <button type="submit" class="usersMessages__sendBtn">Submit</button>
             </form>
@@ -319,7 +322,7 @@
 </template>
 
 <script setup>
-import { Swiper, SwiperSlide } from 'swiper/vue';
+import {Swiper, SwiperSlide} from 'swiper/vue';
 import 'swiper/css';
 
 import 'swiper/css/pagination';
@@ -387,7 +390,6 @@ const doctorsSlide = [
     docSpec: 'specialist3'
   },
 ]
-// Add the event listener with passive: true
 let user = JSON.parse(localStorage.getItem('data'));
 const store = useStore()
 
@@ -397,24 +399,66 @@ const $t = computed(() => {
 
 })
 
-
+//change slider properties
 function sliderMobile() {
-  if(window.screen.availWidth > 992) {
+  if (window.screen.availWidth > 992) {
     slidesPerView.value = 4
-  }else if(window.screen.availWidth < 993 && window.screen.availWidth > 768) {
+  } else if (window.screen.availWidth < 993 && window.screen.availWidth > 768) {
     slidesPerView.value = 2
-  }else if(window.screen.availWidth < 768) {
+  } else if (window.screen.availWidth < 768) {
     slidesPerView.value = 1
   }
 }
 
-window.addEventListener('resize', ()=> {
+window.addEventListener('resize', () => {
   sliderMobile();
 })
 
-onMounted(()=> {
+onMounted(() => {
   sliderMobile();
 })
+
+//function of form validation
+const username = /^[a-z\d]{3,12}$/i;
+const dni = /^[A-Z]*\d{7}$/i
+const mail = /^[A-Za-z][\w$.]+@[\w]+\.\w+$/;
+const message = /^[A-Z]/i
+
+
+function validate(input, regex) {
+  if (!regex.test(input.value)) {
+    input.classList.add('invalid');
+  } else {
+    input.classList.remove('invalid');
+  }
+
+}
+
+function isItValid() {
+  const inputs  = document.querySelectorAll('.usersMessages__input, .usersMessages__message');
+  // const mess  = document.querySelector('.usersMessages__message');
+  inputs.forEach(input => {
+    if (input.name === 'name') {
+      validate(input, username)
+    }else if(input.name === 'subject') {
+      validate(input, dni)
+    }else if(input.name === 'email') {
+      validate(input, mail)
+    }else if(input.name === 'message') {
+      validate(input, message)
+    }
+  })
+  for(let inp of inputs) {
+    if(inp.classList.contains('invalid')) {
+      return;
+    }else {
+      inp.value = '';
+      message.value = '';
+    }
+  }
+
+}
+
 </script>
 
 <style lang="scss">
@@ -1050,6 +1094,7 @@ body {
     width: 100%;
     resize: none;
     outline: none;
+    font-family: sans-serif;
 
     &::placeholder {
       font-size: 16px;
@@ -1166,6 +1211,25 @@ body {
 }
 
 
+.invalid {
+  border: 1px solid red;
+  border-radius: 5px;
+  outline: none;
+  animation: shake 100ms 2 linear;
+  -moz-animation: shake 150ms 2 linear
+}
+
+@keyframes shake {
+  0% {
+    transform: translate(3px, 0);
+  }
+  50% {
+    transform: translate(-3px, 0);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
 
 
 </style>
