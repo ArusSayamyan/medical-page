@@ -1,6 +1,6 @@
 <template>
-  <div class="footer">
-    <div class="footer__wrapper">
+  <base-wrapper>
+    <div class="footer">
       <div class="footer__block">
         <div class="footer__logoBlock">
           <img src="../assets/icons/pageLogo.svg" alt="pageLogo" class="footer__logo">
@@ -32,15 +32,15 @@
       </div>
       <div class="footer__links">
         <ul class="footer__linksList">
-          <li class="footer__linkItem"><a href="" class="footer__link">Our Story</a></li>
-          <li class="footer__linkItem"><a href="" class="footer__link">
-            Code of Conduct
+          <li class="footer__linkItem"><a href="" class="footer__link"></a></li>
+          <li class="footer__linkItem"><a href="#home" class="footer__link">
+            {{ $t('nav')['home'] }}
           </a></li>
-          <li class="footer__linkItem"><a href="" class="footer__link">
-            Privacy and Terms
+          <li class="footer__linkItem"><a href="#aboutUs" class="footer__link">
+            {{ $t('nav')['aboutUs'] }}
           </a></li>
-          <li class="footer__linkItem"><a href="" class="footer__link">
-            Contact</a></li>
+          <li class="footer__linkItem"><a href="#contactUs" class="footer__link">
+            {{ $t('nav')['contact'] }}</a></li>
         </ul>
         <div class="footer__copyright">
           <p class="footer__copyrightText">Copyright © 2022 Leadership Event Co., Ltd.<br>
@@ -52,12 +52,21 @@
         </div>
       </div>
     </div>
-  </div>
+  </base-wrapper>
 </template>
 
 <script setup>
-import {ref} from 'vue'
+import {computed, ref} from 'vue'
+import {useStore} from "vuex";
 const showArrow = ref(false)
+const store = useStore()
+
+// change Language
+const $t = computed(() => {
+  return store.getters.getLanguage
+
+})
+
 window.addEventListener('scroll', () => {
   if(document.documentElement.scrollTop > 100) {
     showArrow.value = true
@@ -69,23 +78,6 @@ window.addEventListener('scroll', () => {
 
 <style scoped lang="scss">
 .footer {
-  padding: 50px 0;
-
-  &__wrapper {
-    max-width: 1320px;
-    width: 100%;
-    margin: 0 auto;
-    padding: 0 20px;
-    box-sizing: border-box;
-
-    @media(max-width: 992px) {
-      max-width: 720px;
-    }
-
-    @media(max-width: 768px) {
-      max-width: 540px;
-    }
-  }
 
   &__logoBlock {
     display: flex;

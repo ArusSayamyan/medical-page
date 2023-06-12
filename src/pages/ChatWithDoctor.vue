@@ -1,6 +1,7 @@
 <template>
+  <base-wrapper>
   <div class="chat">
-    <h1 class="chat__title">Consultation</h1>
+    <h1 class="chat__title">{{ $t('chat')['title'] }}</h1>
     <div class="chat__container">
       <div class="chat__wrapper">
         <div class="chat__mainChat" ref="myElement">
@@ -14,7 +15,7 @@
                 <div class="chat__dot"></div>
               </div>
             </div>
-            <p class="chat__answer" v-else>{{ quest.ans }}</p>
+            <p class="chat__answer" v-else>{{ quest.ans }} <router-link to="/register" v-if="quest.ans === 'For registration click'">here</router-link></p>
           </div>
         </div>
         <div class="chat__messagesWrapper">
@@ -24,16 +25,25 @@
       </div>
       <form class="card flex justify-content-center chat__colorPicker" @submit.prevent="selectColor">
         <ColorPicker v-model="color" inline />
-        <button class="chat__colorSubmit">Select</button>
+        <button class="chat__colorSubmit">{{ $t('chat')['save'] }}</button>
       </form>
     </div>
   </div>
+  </base-wrapper>
 </template>
 
 <script setup>
-import {ref} from 'vue'
+import {computed, ref} from 'vue'
 import ColorPicker from 'primevue/colorpicker';
+import BaseWrapper from "@/components/BaseWrapper.vue";
+import {useStore} from "vuex";
+const store = useStore()
 
+// change Language
+const $t = computed(() => {
+  return store.getters.getLanguage
+
+})
 
 const myElement = ref();
 const color = ref();
@@ -47,7 +57,7 @@ const messages = ref([
   {
     id: 'message2',
     message: 'How can I register?',
-    answer: 'For registration click here'
+    answer: 'For registration click'
   },
   {
     id: 'message3',
@@ -123,7 +133,7 @@ function sendMessage(event, selectedMessage) {
     }
   }
 
-  //SELECT COLOR FOR CHAT
+  //SELECT BACKGROUND COLOR FOR CHAT
 
 function selectColor() {
   myElement.value.style.backgroundColor = '#' + color.value
@@ -133,11 +143,6 @@ function selectColor() {
 
 <style scoped lang="scss">
 .chat {
-  padding: 80px 20px;
-  max-width: 1320px;
-  width: 100%;
-  margin: 0 auto;
-  box-sizing: border-box;
 
   &__title {
     text-align: center;
@@ -208,29 +213,21 @@ function selectColor() {
     &:nth-child(1) {
       display: inline-block;
       animation: slideRight 2s forwards;
-      //animation-delay: 0.5s;
-      //opacity: 0;
       transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
     }
     &:nth-child(2) {
       display: inline-block;
       animation: slideRight 1.5s forwards;
-      //animation-delay: 1s;
-      //opacity: 0;
       transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
     }
     &:nth-child(3) {
       display: inline-block;
       animation: slideRight 1s forwards;
-      //animation-delay: 1.5s;
-      //opacity: 0;
       transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
     }
     &:nth-child(4) {
       display: inline-block;
       animation: slideRight 0.5s forwards;
-      //animation-delay: 0.5s;
-      //opacity: 0;
       transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
     }
   }

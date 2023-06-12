@@ -1,6 +1,6 @@
 <template>
   <div class="pages">
-    <div class="mainContainer__header">
+    <div class="mainContainer__header" id="home">
       <div class="mainContainer__videoWrapper">
         <video class="mainContainer__headerVideo" autoplay loop muted>
           <source src="../assets/medvideo.mp4" type="video/mp4">
@@ -11,6 +11,7 @@
 
     <!--      hightlught block-->
     <div class="mainContainer__highlightsContent">
+      <base-wrapper>
       <div class="mainContainer__highlightsBlock">
         <swiper-vue
             class="swiper"
@@ -141,6 +142,7 @@
         </swiper-vue>
 
       </div>
+      </base-wrapper>
     </div>
 
     <!--      our story-->
@@ -150,6 +152,7 @@
 
     <!--    speakers-->
     <div class="mainContainer__speakers speakers" id="ourDoctors">
+      <base-wrapper>
       <div class="speakers__wrapper">
         <div class="speakers__header">
           <div class="speakers__descSection">
@@ -185,11 +188,13 @@
           </div>
         </div>
       </div>
+      </base-wrapper>
     </div>
 
     <!--    order tables-->
 
     <div class="mainContainer__orderTable orderTable">
+      <base-wrapper>
       <div class="orderTable__tableSection">
         <main-title :main="$t('registration')['title']['mainWorld']"
                     :important="$t('registration')['title']['mainTitle']"></main-title>
@@ -228,11 +233,13 @@
           </table>
         </div>
       </div>
+      </base-wrapper>
     </div>
 
     <!--    become a speaker-->
 
     <div class="mainContainer__becomeSpeaker" id="register">
+      <base-wrapper>
       <div class="becomeSpeaker">
         <div class="becomeSpeaker__info">
           <main-title :main="$t('register')['title']['mainWorld']" :important="$t('register')['title']['mainTitle']"
@@ -244,6 +251,7 @@
           <router-link to="/register" class="becomeSpeaker__link">{{ $t('register')['linkContent'] }}</router-link>
         </div>
       </div>
+      </base-wrapper>
     </div>
 
     <!--    tickets block-->
@@ -251,15 +259,18 @@
     <div class="mainContainer__tickets" id="tickets">
       <main-title :main="$t('primaryCare')['title']['mainWorld']" :important="$t('primaryCare')['title']['mainTitle']"
                   centered></main-title>
+      <base-wrapper>
       <div class="mainContainer__ticketsWrapper">
         <MainTicket/>
       </div>
+      </base-wrapper>
     </div>
 
     <!--    contact us-->
     <div class="mainContainer__contactUs" id="contactUs">
+      <base-wrapper>
       <div class="mainContainer__contactUsWrapper">
-        <main-title main="Contact" important="Us"></main-title>
+        <main-title :main="$t('contactUs')['title']['mainWorld']" :important="$t('contactUs')['title']['mainTitle']"></main-title>
         <div class="mainContainer__contactContent">
           <div class="mainContainer__mapBlock">
             <iframe class="mainContainer__map"
@@ -291,34 +302,39 @@
 
 
       </div>
+      </base-wrapper>
     </div>
 
     <!--    users messages-->
 
     <div class="mainContainer__usersMessages" id="opinion">
+      <base-wrapper>
       <div class="mainContainer__usersMessagesContent usersMessages">
         <div class="usersMessages__block">
           <div class="usersMessages__header">
-            <h4 class="usersMessages__name">Please Say Hi</h4>
+            <h4 class="usersMessages__name">{{ $t('messages')['title'] }}</h4>
           </div>
           <div class="usersMessages__main">
             <form class="usersMessages__form" @submit.prevent="isItValid">
               <div class="usersMessages__inputs">
-                <input type="text" class="usersMessages__input" placeholder="Username" name="name" @keyup="validate($event.target, username)">
-                <input type="email" class="usersMessages__input" placeholder="Email" name="email" @keyup="validate($event.target, mail)">
-                <input type="text" class="usersMessages__input" placeholder="Subject" name="subject" @keyup="validate($event.target, dni)">
+                <input type="text" class="usersMessages__input" :placeholder="$t('messages')['username']" name="name" @keyup="validate($event.target, username)">
+                <input type="email" class="usersMessages__input" :placeholder="$t('messages')['mail']" name="email" @keyup="validate($event.target, mail)">
+                <input type="text" class="usersMessages__input" :placeholder="$t('messages')['subject']" name="subject" @keyup="validate($event.target, dni)">
               </div>
               <div class="usersMessages__opinion">
-                <textarea name="message" placeholder="Message" id="" cols="30" rows="10"
+                <textarea name="message" :placeholder="$t('messages')['message']" id="" cols="30" rows="10"
                           class="usersMessages__message" @keyup="validate($event.target, message)"></textarea>
               </div>
-              <button type="submit" class="usersMessages__sendBtn">Submit</button>
+              <button type="submit" class="usersMessages__sendBtn">{{ $t('messages')['submit'] }}</button>
             </form>
           </div>
         </div>
       </div>
+      </base-wrapper>
+
     </div>
   </div>
+
 </template>
 
 <script setup>
@@ -348,6 +364,7 @@ import doctor5 from '../assets/imgs/user5.jpg';
 import doctor6 from '../assets/imgs/user6.jpg';
 import doctor7 from '../assets/imgs/user7.jpg';
 import doctor8 from '../assets/imgs/user8.jpg';
+import BaseWrapper from "@/components/BaseWrapper.vue";
 
 // import { Pagination } from 'swiper';
 const slidesPerView = ref(4)
@@ -556,22 +573,16 @@ body {
   }
 
   &__ticketsWrapper {
-    max-width: 1320px;
-    width: 100%;
-    margin: 0 auto;
-    padding: 55px 20px;
     display: flex;
     justify-content: space-between;
     box-sizing: border-box;
 
     @media(max-width: 992px) {
-      max-width: 720px;
       row-gap: 25px;
       flex-wrap: wrap;
     }
 
     @media(max-width: 768px) {
-      max-width: 540px;
       flex-direction: column;
     }
   }
@@ -579,22 +590,6 @@ body {
   &__contactUs {
     padding: 55px 0;
     background-color: #f0f8ff;
-  }
-
-  &__contactUsWrapper {
-    max-width: 1320px;
-    width: 100%;
-    margin: 0 auto;
-    padding: 0 20px;
-    box-sizing: border-box;
-
-    @media(max-width: 992px) {
-      max-width: 720px;
-    }
-
-    @media(max-width: 768px) {
-      max-width: 540px;
-    }
   }
 
   &__contactContent {
@@ -666,22 +661,12 @@ body {
   }
 
   &__highlightsBlock {
-    max-width: 1320px;
-    width: 100%;
-    margin: 0 auto;
     display: flex;
     justify-content: space-between;
-    padding: 55px 20px;
-    box-sizing: border-box;
 
     @media(max-width: 992px) {
-      max-width: 720px;
       flex-wrap: wrap;
       row-gap: 30px;
-    }
-
-    @media(max-width: 768px) {
-      max-width: 540px;
     }
   }
 
@@ -772,20 +757,6 @@ body {
 
 .speakers {
   &__wrapper {
-    max-width: 1320px;
-    width: 100%;
-    margin: 0 auto;
-    padding: 0 20px;
-    box-sizing: border-box;
-
-    @media(max-width: 992px) {
-      max-width: 720px;
-    }
-
-    @media(max-width: 768px) {
-      max-width: 540px;
-    }
-
     @media(max-width: 500px) {
       padding: 0;
     }
@@ -880,25 +851,8 @@ body {
 
 //style of table
 .orderTable {
-  padding: 100px 0;
-
   &__tableWrapper {
     overflow-x: auto;
-  }
-
-  &__tableSection {
-    max-width: 1320px;
-    padding: 0 20px;
-    box-sizing: border-box;
-    margin: 0 auto;
-
-    @media(max-width: 992px) {
-      max-width: 720px;
-    }
-
-    @media(max-width: 768px) {
-      max-width: 540px;
-    }
   }
 
   &__table {
@@ -931,22 +885,9 @@ body {
 //fixed background section
 
 .becomeSpeaker {
-  max-width: 1320px;
-  width: 100%;
-  margin: 0 auto;
-  padding: 0 20px;
-  box-sizing: border-box;
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-  @media(max-width: 992px) {
-    max-width: 720px;
-  }
-
-  @media(max-width: 768px) {
-    max-width: 540px;
-  }
 
   @media(max-width: 960px) {
     flex-direction: column;
@@ -997,19 +938,6 @@ body {
 }
 
 .usersMessages {
-  max-width: 1320px;
-  width: 100%;
-  margin: 0 auto;
-  padding: 0 20px;
-  box-sizing: border-box;
-
-  @media(max-width: 992px) {
-    max-width: 720px;
-  }
-
-  @media(max-width: 768px) {
-    max-width: 540px;
-  }
 
   &__block {
     max-width: 750px;

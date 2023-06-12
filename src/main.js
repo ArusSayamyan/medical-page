@@ -5,6 +5,7 @@ import App from './App.vue'
 import PrimeVue from 'primevue/config';
 import MainBtn from '@/components/MainBtn'
 import MainTitle from '@/components/MainTitle'
+import BaseWrapper from '@/components/BaseWrapper.vue'
 import "primevue/resources/themes/lara-light-indigo/theme.css";
 import "primevue/resources/primevue.min.css";
 import { Swiper, SwiperSlide } from 'swiper/vue'
@@ -49,6 +50,7 @@ const store = createStore({
 
 const app = createApp(App);
 app.component('main-btn', MainBtn)
+app.component('base-wrapper', BaseWrapper)
 app.component('main-title', MainTitle)
 app.component('swiper-vue', Swiper)
 app.component('swiper-slide', SwiperSlide)

@@ -1,39 +1,43 @@
 <template>
-  <div class="story" id="aboutUs">
-    <main-title
-        :main="$t('aboutUs')['title']['mainWorld']"
-        :important="$t('aboutUs')['title']['mainTitle']"
-    ></main-title>
-    <div class="story__wrapper">
-      <div class="story__block">
-        <h3 class="story__subTitle">{{ $t('aboutUs')['subTitle1'] }}</h3>
-        <p class="story__desc">{{ $t('aboutUs')['desc'] }}</p>
-        <main-btn
-            :btnContent="$t('aboutUs')['btnContent1']"
-        ></main-btn>
-        <main-btn
-            :btnContent="$t('aboutUs')['btnContent2']"
-            :withBg="true"
-        ></main-btn>
-      </div>
-      <div class="story__block">
-        <h3 class="story__subTitle">{{ $t('aboutUs')['subTitle2'] }}</h3>
-        <div class="story__users">
-          <img src="../assets/imgs/user1.jpg" alt="" class="story__userImg">
-          <img src="../assets/imgs/user2.jpg" alt="" class="story__userImg">
-          <img src="../assets/imgs/user3.jpg" alt="" class="story__userImg">
-          <img src="../assets/imgs/user4.jpg" alt="" class="story__userImg">
-          <img src="../assets/imgs/user5.jpg" alt="" class="story__userImg">
-          <p class="story__usersCount">120+ {{ $t('aboutUs')['usersCount'] }}</p>
+  <base-wrapper>
+    <div class="story" id="aboutUs">
+      <main-title
+          :main="$t('aboutUs')['title']['mainWorld']"
+          :important="$t('aboutUs')['title']['mainTitle']"
+      ></main-title>
+      <div class="story__wrapper">
+        <div class="story__block">
+          <h3 class="story__subTitle">{{ $t('aboutUs')['subTitle1'] }}</h3>
+          <p class="story__desc">{{ $t('aboutUs')['desc'] }}</p>
+          <main-btn
+              :btnContent="$t('aboutUs')['btnContent1']"
+          ></main-btn>
+          <main-btn
+              :btnContent="$t('aboutUs')['btnContent2']"
+              :withBg="true"
+          ></main-btn>
+        </div>
+        <div class="story__block">
+          <h3 class="story__subTitle">{{ $t('aboutUs')['subTitle2'] }}</h3>
+          <div class="story__users">
+            <img src="../assets/imgs/user1.jpg" alt="" class="story__userImg">
+            <img src="../assets/imgs/user2.jpg" alt="" class="story__userImg">
+            <img src="../assets/imgs/user3.jpg" alt="" class="story__userImg">
+            <img src="../assets/imgs/user4.jpg" alt="" class="story__userImg">
+            <img src="../assets/imgs/user5.jpg" alt="" class="story__userImg">
+            <p class="story__usersCount">120+ {{ $t('aboutUs')['usersCount'] }}</p>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+  </base-wrapper>
+
 </template>
 
 <script setup>
 import {useStore} from "vuex";
 import {computed} from "vue";
+import BaseWrapper from "@/components/BaseWrapper.vue";
 
 const store = useStore()
 
@@ -44,19 +48,6 @@ const $t = computed(()=> {
 
 <style scoped lang="scss">
 .story {
-  max-width: 1320px;
-  width: 100%;
-  margin: 0 auto;
-  padding: 55px 20px;
-  box-sizing: border-box;
-
-  @media(max-width: 992px) {
-    max-width: 720px;
-  }
-
-  @media(max-width: 768px) {
-    max-width: 540px;
-  }
 
   &__wrapper {
     width: 100%;
