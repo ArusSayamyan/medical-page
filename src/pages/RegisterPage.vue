@@ -1,41 +1,53 @@
 <template>
+  <base-wrapper>
   <div class="registerPage">
-    <h1 class="registerPage__title">Registration</h1>
+    <h1 class="registerPage__title">{{ $t('registerPage')['title'] }}</h1>
     <p class="registerPage__price" v-if="price > 0">The total cosi is {{price}}$</p>
     <div class="registerPage__formContainer">
       <form class="registerPage__form" @submit.prevent="setData">
         <div class="card flex justify-content-center">
-          <MultiSelect v-model="selectedServices" :options="services"  :optionLabel="optionGroupLabel" multiple  placeholder="Select Services"
+          <MultiSelect v-model="selectedServices" :options="services"  :optionLabel="optionGroupLabel" multiple  :placeholder="$t('registerPage')['selServ']"
                        :maxSelectedLabels="3" class="w-full md:w-20rem" @change="handle"/>
         </div>
         <div class="card flex justify-content-center">
-          <Dropdown v-model="selectedDoctor" :options="doctors" optionLabel="name" placeholder="Select a doctor"
+          <Dropdown v-model="selectedDoctor" :options="doctors" optionLabel="name" :placeholder="$t('registerPage')['selDoc']"
                     class="w-full md:w-14rem"/>
         </div>
         <div class="card flex flex-wrap gap-3 p-fluid">
           <div class="card flex justify-content-center">
         <span class="p-float-label">
             <Calendar id="calendar-24h" v-model="datetime24h" showTime hourFormat="24"/>
-            <label for="calendar-24h">Date</label>
+            <label for="calendar-24h">{{ $t('registerPage')['date'] }}</label>
         </span>
           </div>
         </div>
-        <input type="tel" class="registerPage__formInput" placeholder="Your phone number" required
+        <input type="tel" class="registerPage__formInput" :placeholder="$t('registerPage')['phone']" required
                v-model="phoneNumber">
-        <button class="registerPage__formBtn" type="submit">Save order</button>
+        <button class="registerPage__formBtn" type="submit">{{ $t('registerPage')['saveOrder'] }}</button>
       </form>
     </div>
 
   </div>
+  </base-wrapper>
 </template>
 
 <script setup>
 import MultiSelect from 'primevue/multiselect';
 import Dropdown from 'primevue/dropdown';
 import Calendar from 'primevue/calendar';
-import {ref} from "vue";
+import {computed, ref} from "vue";
+import BaseWrapper from "@/components/BaseWrapper.vue";
+import {useStore} from "vuex";
 const price = ref(0)
 // const arr = ref([])
+
+const store = useStore()
+
+// change Language
+const $t = computed(() => {
+  return store.getters.getLanguage
+
+})
 
 const selectedServices = ref();
 const services = ref([
@@ -96,20 +108,6 @@ function setData() {
 
 <style scoped lang="scss">
 .registerPage {
-  padding: 100px 20px 0;
-  max-width: 1320px;
-  width: 100%;
-  margin: 0 auto;
-  box-sizing: border-box;
-
-  @media(max-width: 992px) {
-    max-width: 720px;
-  }
-
-  @media(max-width: 768px) {
-    max-width: 540px;
-  }
-
   &__title {
     text-align: center;
   }

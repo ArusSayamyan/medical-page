@@ -42,7 +42,6 @@ import {computed} from "vue";
 import {ref} from "vue";
 const showMobileMenu = ref(false)
 const store = useStore()
-
 function setLanguage(language) {
   store.commit('changeLanguage', language)
 }

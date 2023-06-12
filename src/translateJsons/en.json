@@ -3,7 +3,7 @@
     "home": "Home",
     "primaryCare": "Primary care",
     "doctors": "Our doctors",
-    "register": "Registerc now",
+    "register": "Register now",
     "yourOpinion": "your opinion",
     "contact": "Contact",
     "aboutUs": "about us"
@@ -58,5 +58,47 @@
       "mainTitle": "care"
     }
 
+  },
+  "services": {
+    "dental": "Dental care",
+    "preventative": "Preventative care",
+    "diagnostic": "Laboratory and diagnostic care",
+    "physical": "Physical and occupational therapy",
+    "pharmaceutical": "Pharmaceutical care",
+    "nutritional": "Nutritional support",
+    "support": "Support",
+    "button": "Consultation"
+  },
+  "contactUs": {
+    "title": {
+      "mainWorld": "Contact",
+      "mainTitle": "Us"
+    },
+    "place": "Times Square",
+    "address": "102 South. 7th Street, New York, NY 10036, USA"
+  },
+  "messages": {
+    "title": "Send your questions",
+    "username": "Username",
+    "mail": "Email",
+    "subject": "Subject",
+    "message": "Message",
+    "submit": "Submit"
+  },
+  "chat": {
+    "title": "CONSULTATION",
+    "save": "select"
+  },
+  "registerPage": {
+    "title": "Registration",
+    "selServ": "Select Services",
+    "selDoc": "Select a doctor",
+    "date": "Date",
+    "phone": "Your phone number",
+    "saveOrder": "Save order"
+  },
+  "aboutDoctor": {
+    "text": "practiced as a registered nurse both in labor and delivery and the neonatal intensive care unit at a hospital in Mississauga, Ontario after earning her Bachelor of Science in Nursing. As an undergraduate student at McMaster University School of Nursing, she was a standout student and received an award for Outstanding Academic Achievement. Going to medical school was never far from her mind though. “I worked with a resident at my hospital who had told me about how she attended medical school in the Caribbean. I didn’t really know much about Caribbean medical schools. She had gone to MUA and highly recommended it.” Samantha applied and was accepted into the Gateway Program at MUA. “It was an awesome program and a good way to review everything that I had learned a while back. The program really helps prepare you for the first semester of medical school. Embracing both fellow students and those living on the island, Samantha became actively involved in the school, and in the community on Nevis. “There were students from all around the world and the diversity was great and so positive. “ In addition to forging bonds with her fellow students, she was awarded the prestigious  Premier of Nevis award on the island for her exceptional volunteer work and involvement with the local community. “I got to know a woman who was a breast cancer survivor there, and she had started the “Pink Lilly Program” to help educate others about the topic of breast cancer, screening and provide resources to those in need . I worked with her throughout my time on the island to help promote her vision, it was inspiring."
   }
+
 }

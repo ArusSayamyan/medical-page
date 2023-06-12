@@ -16,11 +16,10 @@
     </div>
     <div class="pricingTicket__main">
       <ul class="pricingTicket__list">
-        <li class="pricingTicket__item" v-for="serv in obj.service" :key="serv">{{ serv }}</li>
-        <li class="pricingTicket__item">24/7 Support</li>
+        <li class="pricingTicket__item" v-for="serv in obj.service" :key="serv">{{ $t('services')[serv] }}</li>
+        <li class="pricingTicket__item">24/7 {{ $t('services')['support'] }}</li>
       </ul>
-      <p class="pricingTicket__desc">Quick group meetings for multiple teams</p>
-      <router-link to="/chat" class="pricingTicket__chat">Help</router-link>
+      <router-link to="/chat" class="pricingTicket__chat">{{ $t('services')['button'] }}</router-link>
     </div>
   </div>
     </swiper-slide>
@@ -28,7 +27,7 @@
 </template>
 
 <script setup>
-import {ref, onMounted} from 'vue'
+import {ref, onMounted, reactive} from 'vue'
 
 // Import Swiper Vue.js components
 import { Swiper, SwiperSlide } from 'swiper/vue';
@@ -41,40 +40,47 @@ import 'swiper/css/pagination';
 
 // import required modules
 import { Pagination } from 'swiper';
+import {useStore} from "vuex";
 const slidesPerView = ref(3)
 const modules = [Pagination]
-const  services  = ref([
+const store = useStore()
+
+const $t = store.getters.getLanguage
+
+
+const  services  = reactive([
   {
     id: 'serv1',
     doctorName: 'William Agras',
-    service: ['Dental care', 'Preventative care'],
+    service: ['dental', 'pharmaceutical'],
     price: 300
   },
   {
     id: 'serv2',
     doctorName: 'Virginia Apgar',
-    service: ['Laboratory and diagnostic care', 'Physical and occupational therapy'],
+    service: ['diagnostic', 'physical'],
     price: 300
   },
   {
     id: 'serv3',
     doctorName: 'Jean Astruc',
-    service: ['Pharmaceutical care', 'Nutritional support'],
+    service: ['pharmaceutical','nutritional'],
     price: 300
   },
   {
     id: 'serv4',
     doctorName: 'Gerbrand Bakker',
-    service: ['Dental care', 'Physical and occupational therapy'],
+    service: ['dental', 'physical'],
     price: 300
   },
   {
     id: 'serv5',
     doctorName: 'Norman Bethune',
-    service: ['Physical and occupational therapy', 'Preventative care'],
+    service: ['physical', 'preventative'],
     price: 300
   }
 ])
+
 
 function changeSliderValue() {
   if(window.screen.availWidth > 1024) {
@@ -86,6 +92,8 @@ function changeSliderValue() {
   }
 }
 
+
+
 window.addEventListener('resize', ()=> {
   changeSliderValue();
 })
@@ -93,6 +101,8 @@ window.addEventListener('resize', ()=> {
 onMounted(()=> {
   changeSliderValue();
 })
+
+
 </script>
 
 <style scoped lang="scss">
